@@ -1,2 +1,2 @@
-# CE_Dream_Team
+# CE Dream Team
 CS320 Team Project
