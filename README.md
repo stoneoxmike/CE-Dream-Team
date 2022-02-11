@@ -6,4 +6,4 @@ Brody Hageneder<br/>
 Michael Geyer<br/>
 ## Project Name
 Job Comparison Application
-##Installation of IDE & Software
+## Installation of IDE & Software 
