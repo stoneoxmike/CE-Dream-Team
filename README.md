@@ -4,3 +4,5 @@ CS320 Team Project
 Vincent Pagano<br/>
 Brody Hageneder<br/>
 Michael Geyer<br/>
+## Project Name
+Job Comparison Application
