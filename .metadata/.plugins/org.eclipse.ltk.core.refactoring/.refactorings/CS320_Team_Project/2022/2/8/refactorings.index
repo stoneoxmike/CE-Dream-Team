@@ -1,0 +1,18 @@
+1644844515447	Delete element
+1644844557942	Delete element
+1644844561856	Delete element
+1644844564744	Delete element
+1644844602298	Rename package 'edu.ycp.cs320.lab02.controller'
+1644844619066	Rename package 'edu.ycp.cs320.lab02.servlet'
+1644844674984	Rename package 'edu.ycp.cs320.lab02.model'
+1644844752132	Rename type 'IndexServlet'
+1644844780602	Rename type 'AddNumbersController'
+1644844802032	Rename type 'AddNumbersServlet'
+1644844821252	Rename type 'GuessingGameController'
+1644844833892	Rename type 'GuessingGame'
+1644844846619	Rename type 'GuessingGameServlet'
+1644844875704	Rename package 'edu.ycp.cs320.lab02.controller'
+1644844890927	Rename package 'edu.ycp.cs320.lab02.model'
+1644844937171	Rename package 'edu.ycp.cs320.lab02.main'
+1644845282064	Rename type 'GuessingGameControllerTest'
+1644845298333	Rename type 'GuessingGameTest'
