@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-C:\Users\stone\OneDrive\Documents\CS320Team\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3455872718.index
-\CS320_Team_Project\src
