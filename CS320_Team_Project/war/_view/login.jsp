@@ -60,7 +60,7 @@
 				<div id = "Submit">
 				<input type="Submit" name="submit" value="Continue" id="label_3" /></td>
 				</div>
-				<link rel="New Account" href="
+				<!link rel="New Account" href=" >
 		</div>
 	</body>
 </html>
