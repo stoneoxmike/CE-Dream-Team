@@ -46,8 +46,8 @@
 		<div id = "LoginBox">
 			<h1 class = "h1"> Welcome! </h1>
 				<p id = "label"> Please login with your username and password. <br> <i>If you haven't already, create an account with the link below </i></br> </p>
-				<!form action="${pageContext.servletContext.contextPath}/multiplyNumbers" method="post">
-				<table>
+				<form action="${pageContext.servletContext.contextPath}/login" method="get">
+					<table>
 					<tr>
 						<td class="label_2">Username:</td>
 						<td><input type="text" name="username" size="auto" value="" /></td>
@@ -61,6 +61,7 @@
 				<input type="Submit" name="submit" value="Continue" id="label_3" /></td>
 				</div>
 				<!link rel="New Account" href=" >
+				</form>
 		</div>
 	</body>
 </html>
