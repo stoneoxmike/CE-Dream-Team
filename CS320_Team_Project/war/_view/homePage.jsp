@@ -6,37 +6,40 @@
 	<head>
 		<title>Home Page</title>
 		<style type="text/css">
-		.error {
-			color: red;
-		}
-		
-		td.label {
-			text-align: right;
-		}
+			#background {
+				border-style: solid;
+				border-width: 10px;
+				border-color: black;
+				background-color: #305c54;
+				padding:50px;
+			}
+			h1{
+				text-size-adjust: 500%;
+				text-align:center;
+				color: black;
+			}
+			.button {
+			  float: right;
+			  border: solid;
+			  color:black;
+			  padding: 15px 32px;
+			  text-align: center;
+			  text-decoration: navajowhite;
+			  display: inline-block;
+			  font-size: 16px;
+			  margin: 4px 2px;
+			  cursor: pointer;
+			}
+			.button1 {background-color: #305c54;} /* Green */
 		</style>
 	</head>
 
 	<body>
-		<c:if test="${! empty errorMessage}">
-			<div class="error">${errorMessage}</div>
-		</c:if>
-	
-		<form action="${pageContext.servletContext.contextPath}/homePage" method="post">
-			<table>
-				<tr>
-					<td class="label">First number:</td>
-					<td><input type="text" name="first" size="12" value="${first}" /></td>
-				</tr>
-				<tr>
-					<td class="label">Second number:</td>
-					<td><input type="text" name="second" size="12" value="${second}" /></td>
-				</tr>
-				<tr>
-					<td class="label">Result:</td>
-					<td>${result}</td>
-				</tr>
-			</table>
-			<input type="Submit" name="submit" value="Add Numbers!">
-		</form>
+		<div id = "background">
+		<h1 id = "h1">CE Dream Team - Job Comparison Website</h1>
+		</div>
+			<div>
+			<button class="button button1"; type = "submit" value="logOut">Log Out</button>
+			</div>
 	</body>
 </html>
