@@ -36,7 +36,7 @@
 
 	<body>
 		<div id = "background">
-		<h1 id = "h1">CE Dream Team - Job Comparison Website</h1>
+		<h1 id = "h1">CE Dream Team - Job Comparison Website <br> Vin Pagano; Michael Geyer; Brody Hageneder</br></h1>
 		</div>
 			<div>
 			<button class="button button1"; type = "submit" value="logOut">Log Out</button>
