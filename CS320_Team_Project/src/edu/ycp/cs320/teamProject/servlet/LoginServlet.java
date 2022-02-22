@@ -56,7 +56,16 @@ public class LoginServlet extends HttpServlet {
 			else {
 				//use controller to store and retrieve from database
 				LoginController controller = new LoginController();
-				
+				if (controller.login(model)) {
+					// if credentials are correct, doGet homePage
+					System.out.println("login successful");
+					HomePageServlet servlet = new HomePageServlet();
+					servlet.doGet(req, resp);
+				} else {
+					// if credentials wrong, give error
+					errorMessage = "Incorrect password";
+					System.out.println("login failed");
+				}
 			}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid username or password";
