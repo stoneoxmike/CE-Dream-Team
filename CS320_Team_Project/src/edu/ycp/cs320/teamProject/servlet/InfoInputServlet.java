@@ -42,7 +42,7 @@ public class InfoInputServlet extends HttpServlet {
 		
 		// check if user is starting a new game and call controller method
 		if (req.getParameter("startGame") != null) {
-			controller.startGame();
+			
 		}
 		// otherwise, user is already playing the game - get the old min and max
 		// from the posted form
@@ -56,23 +56,14 @@ public class InfoInputServlet extends HttpServlet {
 			// initialize model with the old min, max values
 			// since the data does not persist between posts, we need to 
 			// recreate and re-initialize the model each time
-			model.setMin(curMin);
-			model.setMax(curMax);
+			// model.setMin(curMin);
+			// model.setMax(curMax);
 
 			// now check to see which button the user pressed
 			// and adjust min, max, and guess accordingly
 			// must call controller methods to do this since the
 			// view only reads the model data, it never changes
 			// the model - only the controller can change the model
-			if (req.getParameter("gotIt") != null) {
-				controller.setNumberFound();
-			} else if (req.getParameter("less") != null) {
-				controller.setNumberIsLessThanGuess();
-			} else if (req.getParameter("more") != null) {
-				controller.setNumberIsGreaterThanGuess();
-			} else {
-				throw new ServletException("Unknown command");
-			}
 		}
 		
 		// set "game" attribute to the model reference
