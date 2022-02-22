@@ -58,9 +58,13 @@
 					</tr>
 				</table>
 				<div id = "Submit">
-				<input type="Submit" name="submit" value="Continue" id="label_3" /></td>
+					<form action = "${pageContext.servletContext.contextPath}/home" method ="get">
+				<input type="Submit" name="home" value="Continue" id="label_3" /></td>
+					</form>
 				</div>
-				<!link rel="New Account" href=" >
+				<c:if test="${! empty errorMessage}">
+					<div class="error">${errorMessage}</div>
+				</c:if>
 				</form>
 		</div>
 	</body>
