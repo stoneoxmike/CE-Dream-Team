@@ -8,25 +8,29 @@ package edu.ycp.cs320.teamProject.model;
 // when the JSP specifies if(game.done), that gets converted to
 //    a call to model.isDone()
 public class InfoInput {
-	private double salary;
-	private double signingBonus;
-	private double annualBonus;
+	private Double salary;
+	private Double signingBonus;
+	private Double annualBonus;
 	private String location;
-	private double commuteTime;
-	private boolean remote;
-	private boolean insurance;
+	private Double commuteTime;
+	private Boolean remote;
+	private Boolean insurance;
 	// rate these out of 5
-	private int size;
-	private int age;
-	private int stability;
-	private int culture;
-	private int opportunity;
-	private int workLifeBalance;
+	private Integer size;
+	private Integer age;
+	private Integer stability;
+	private Integer culture;
+	private Integer opportunity;
+	private Integer workLifeBalance;
 	
 	public InfoInput() {
+		
 	}
 	
 	// setters
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
 	
 	// getters
 }
