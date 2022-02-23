@@ -50,7 +50,7 @@ public class HomePageServlet extends HttpServlet {
 			// thus, always call a controller method to operate on the data
 			else {
 				HomePageController controller = new HomePageController();
-				result = controller.add(first, second);
+				
 			}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid double";

@@ -17,16 +17,11 @@ public class InfoInputControllerTest {
 		model = new InfoInput();
 		controller = new InfoInputController();
 		
-		model.setMin(1);
-		model.setMax(100);
 		
 		controller.setModel(model);
 	}
 	
 	@Test
 	public void testNumberIsGreater() {
-		int currentGuess = model.getGuess();
-		controller.setNumberIsGreaterThanGuess();
-		assertTrue(model.getGuess() > currentGuess);
 	}
 }

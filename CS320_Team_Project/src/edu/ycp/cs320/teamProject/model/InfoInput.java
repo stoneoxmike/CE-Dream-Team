@@ -8,40 +8,25 @@ package edu.ycp.cs320.teamProject.model;
 // when the JSP specifies if(game.done), that gets converted to
 //    a call to model.isDone()
 public class InfoInput {
-	private int min, max;
+	private double salary;
+	private double signingBonus;
+	private double annualBonus;
+	private String location;
+	private double commuteTime;
+	private boolean remote;
+	private boolean insurance;
+	// rate these out of 5
+	private int size;
+	private int age;
+	private int stability;
+	private int culture;
+	private int opportunity;
+	private int workLifeBalance;
 	
 	public InfoInput() {
 	}
 	
-	public void setMin(int min) {
-		this.min = min;
-	}
+	// setters
 	
-	public int getMin() {
-		return min;
-	}
-	
-	public void setMax(int max) {
-		this.max = max;
-	}
-	
-	public int getMax() {
-		return max;
-	}
-	
-	public boolean isDone() {
-		return min == max;
-	}
-	
-	public int getGuess() {
-		return min + (max-min)/2;
-	}
-	
-	public void setIsLessThan(int guess) {
-		this.max = guess-1;
-	}
-	
-	public void setIsGreaterThan(int guess) {
-		this.min = guess+1;
-	}
+	// getters
 }
