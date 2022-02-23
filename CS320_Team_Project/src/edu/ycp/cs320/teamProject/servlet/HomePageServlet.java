@@ -31,9 +31,6 @@ public class HomePageServlet extends HttpServlet {
 
 		// holds the error message text, if there is any
 		String errorMessage = null;
-
-		// result of calculation goes here
-		Double result = null;
 		
 		// decode POSTed form parameters and dispatch to controller
 		try {
@@ -61,16 +58,37 @@ public class HomePageServlet extends HttpServlet {
 		// values that were originally assigned to the request attributes, also named "first" and "second"
 		// they don't have to be named the same, but in this case, since we are passing them back
 		// and forth, it's a good idea
-		req.setAttribute("first", req.getParameter("first"));
-		req.setAttribute("second", req.getParameter("second"));
+		//req.setAttribute("first", req.getParameter("first"));
+		//req.setAttribute("second", req.getParameter("second"));
 		
 		// add result objects as attributes
 		// this adds the errorMessage text and the result to the response
 		req.setAttribute("errorMessage", errorMessage);
-		req.setAttribute("result", result);
+		//add submit object as attributes
+		req.setAttribute("submit", "submit");
 		
-		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+		//setup logic for the buttons located on the right side of the home page to allow for 
+		//easy movement across the pages
+		if (req.getAttribute("submit").equals("logOut"))
+		{
+			LoginServlet server = new LoginServlet();
+			server.doGet(req, resp);
+		}
+		else if (req.getAttribute("submit").equals("Profile"))
+		{
+			req.getRequestDispatcher("profilejsp").forward(req, resp);
+		}
+		else if (req.getAttribute("submit").equals("Job Comparison"))
+		{
+			req.getRequestDispatcher("/_view/jobComparison.jsp").forward(req, resp);
+		}
+		else if (req.getAttribute("submit").equals("Info Page")) {
+			req.getRequestDispatcher("/_view/infoInput.jsp").forward(req, resp);
+		}
+		else {
+			// Forward to view to render the result HTML document
+			req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+		}
 	}
 
 	// gets double from the request with attribute named s
