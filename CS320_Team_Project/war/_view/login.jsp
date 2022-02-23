@@ -62,9 +62,7 @@
 					<div class="error">${errorMessage}</div>
 				</c:if>
 					<div id = "Submit">
-						<form action="${pageContext.servletContext.contextPath}/home" method="get"> 
-							<input type="Submit" name="home" value="Contnue" id = "label_3">
-						</form>
+							<input type="Submit" name="" value="Contnue" id = "label_3">
 					</div>
 				</form>
 		</div>
