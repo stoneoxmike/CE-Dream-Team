@@ -8,25 +8,107 @@ package edu.ycp.cs320.teamProject.model;
 // when the JSP specifies if(game.done), that gets converted to
 //    a call to model.isDone()
 public class InfoInput {
-	private double salary;
-	private double signingBonus;
-	private double annualBonus;
+	private Double salary;
 	private String location;
-	private double commuteTime;
-	private boolean remote;
-	private boolean insurance;
+	private Double commuteTime;
+	private Boolean remote;
+	private Boolean insurance;
 	// rate these out of 5
-	private int size;
-	private int age;
-	private int stability;
-	private int culture;
-	private int opportunity;
-	private int workLifeBalance;
+	private Integer size;
+	private Integer age;
+	private Integer culture;
+	private Integer opportunity;
+	private Integer workLifeBalance;
+	// weights
+	private Integer sizeWeight;
+	private Integer ageWeight;
+	private Integer cultureWeight;
+	private Integer opportunityWeight;
+	private Integer workLifeBalanceWeight;
+	private Integer salaryWeight;
 	
 	public InfoInput() {
+		
 	}
 	
 	// setters
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
 	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public void setCommuteTime(Double commuteTime) {
+		this.commuteTime = commuteTime;
+	}
+	
+	public void setRemote(Boolean remote) {
+		this.remote = remote;
+	}
+	
+	public void setInsurance(Boolean insurance) {
+		this.insurance = insurance;
+	}
+	
+	public void setSize(Integer size) {
+		this.size = size;
+	}
+	
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	public void setCulture(Integer culture) {
+		this.culture = culture;
+	}
+	
+	public void setOpportunity(Integer opportunity) {
+		this.opportunity = opportunity;
+	}
+	
+	public void setWorkLifeBalance(Integer workLifeBalance) {
+		this.workLifeBalance = workLifeBalance;
+	}
 	// getters
+	public Double getSalary() {
+		return salary;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+	
+	public Double getCommuteTime() {
+		return commuteTime;
+	}
+	
+	public Boolean getRemote() {
+		return remote;
+	}
+	
+	public Boolean getInsurance() {
+		return insurance;
+	}
+	
+	public Integer getSize() {
+		return size;
+	}
+	
+	public Integer getAge() {
+		return age;
+	}
+	
+	public Integer getCulture() {
+		return culture;
+	}
+	
+	public Integer getOpportunity() {
+		return opportunity;
+	}
+	
+	public Integer getWorkLifeBalance() {
+		return workLifeBalance;
+	}
 }
