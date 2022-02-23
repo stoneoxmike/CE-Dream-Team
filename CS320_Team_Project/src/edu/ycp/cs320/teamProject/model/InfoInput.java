@@ -32,5 +32,52 @@ public class InfoInput {
 		this.salary = salary;
 	}
 	
+	public void setSigningBonus(Double signingBonus) {
+		this.signingBonus = signingBonus;
+	}
+	
+	public void setAnnualBonus(Double annualBonus) {
+		this.annualBonus = annualBonus;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public void setCommuteTime(Double commuteTime) {
+		this.commuteTime = commuteTime;
+	}
+	
+	public void setRemote(Boolean remote) {
+		this.remote = remote;
+	}
+	
+	public void setInsurance(Boolean insurance) {
+		this.insurance = insurance;
+	}
+	
+	public void setSize(Integer size) {
+		this.size = size;
+	}
+	
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	public void setStability(Integer stability) {
+		this.stability = stability;
+	}
+	
+	public void setCulture(Integer culture) {
+		this.culture = culture;
+	}
+	
+	public void setOpportunity(Integer opportunity) {
+		this.opportunity = opportunity;
+	}
+	
+	public void setWorkLifeBalance(Integer workLifeBalance) {
+		this.workLifeBalance = workLifeBalance;
+	}
 	// getters
 }
