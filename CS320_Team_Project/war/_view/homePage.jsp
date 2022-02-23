@@ -67,7 +67,7 @@
 			</br>
 			<button class="button button1"; type = "submit" value="Job Comparison">Job Comparison</button>
 			<br>
-			<button class="button button1"; type = "submit" value="Info Page">Info Page</button>
+			<button class="button button1"; type = "submit" value="Info Page">Info Input</button>
 			</br>
 			</div>
 			<div id = "textCenter">
