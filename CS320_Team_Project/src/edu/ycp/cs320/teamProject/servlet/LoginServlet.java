@@ -56,8 +56,7 @@ public class LoginServlet extends HttpServlet {
 			else {
 				//use controller to store and retrieve from database
 				LoginController controller = new LoginController();
-				
-			}
+				}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid username or password";
 		}
@@ -67,8 +66,8 @@ public class LoginServlet extends HttpServlet {
 		// values that were originally assigned to the request attributes, also named "first" and "second"
 		// they don't have to be named the same, but in this case, since we are passing them back
 		// and forth, it's a good idea
-		req.setAttribute("username", req.getParameter("username"));
-		req.setAttribute("password", req.getParameter("password"));
+		req.setAttribute("username", "username");
+		req.setAttribute("password", "password");
 		
 		// add result objects as attributes
 		// this adds the errorMessage text and the result to the response

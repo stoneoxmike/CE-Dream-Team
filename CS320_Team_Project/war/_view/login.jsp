@@ -32,7 +32,7 @@
 		}
 		#label_3 {
 			float: center;
-			textl-align: center;
+			text-align: center;
 			text-color: #3c857d;
 			font-size: 150%;
 			background-color: #305c54;
@@ -46,25 +46,26 @@
 		<div id = "LoginBox">
 			<h1 class = "h1"> Welcome! </h1>
 				<p id = "label"> Please login with your username and password. <br> <i>If you haven't already, create an account with the link below </i></br> </p>
-				<form action="${pageContext.servletContext.contextPath}/login" method="get">
+				<form action="${pageContext.servletContext.contextPath}/login" method="post">
 					<table>
 					<tr>
 						<td class="label_2">Username:</td>
-						<td><input type="text" name="username" size="auto" value="" /></td>
+						<td><input type="text" name="username" value="" /></td>
 					</tr>
 					<tr>
 						<td class="label_2">Password:</td>
-						<td><input type="text" name="password" size="auto" value="" /></td>
+						<td><input type="text" name="password" value="" /></td>
 					</tr>
 				</table>
-				<div id = "Submit">
-					<form action = "${pageContext.servletContext.contextPath}/home" method ="get">
-				<input type="Submit" name="home" value="Continue" id="label_3" /></td>
-					</form>
-				</div>
+				
 				<c:if test="${! empty errorMessage}">
 					<div class="error">${errorMessage}</div>
 				</c:if>
+					<div id = "Submit">
+						<form action="${pageContext.servletContext.contextPath}/home" method="get"> 
+							<input type="Submit" name="home" value="Contnue" id = "label_3">
+						</form>
+					</div>
 				</form>
 		</div>
 	</body>
