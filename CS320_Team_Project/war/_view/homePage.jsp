@@ -17,6 +17,8 @@
 	</head>
 
 	<body>
+	
+	<!--  
 		<c:if test="${! empty errorMessage}">
 			<div class="error">${errorMessage}</div>
 		</c:if>
@@ -38,5 +40,6 @@
 			</table>
 			<input type="Submit" name="submit" value="Add Numbers!">
 		</form>
+		-->
 	</body>
 </html>
