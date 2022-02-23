@@ -9,8 +9,6 @@ package edu.ycp.cs320.teamProject.model;
 //    a call to model.isDone()
 public class InfoInput {
 	private Double salary;
-	private Double signingBonus;
-	private Double annualBonus;
 	private String location;
 	private Double commuteTime;
 	private Boolean remote;
@@ -18,10 +16,16 @@ public class InfoInput {
 	// rate these out of 5
 	private Integer size;
 	private Integer age;
-	private Integer stability;
 	private Integer culture;
 	private Integer opportunity;
 	private Integer workLifeBalance;
+	// weights
+	private Integer sizeWeight;
+	private Integer ageWeight;
+	private Integer cultureWeight;
+	private Integer opportunityWeight;
+	private Integer workLifeBalanceWeight;
+	private Integer salaryWeight;
 	
 	public InfoInput() {
 		
@@ -30,14 +34,6 @@ public class InfoInput {
 	// setters
 	public void setSalary(Double salary) {
 		this.salary = salary;
-	}
-	
-	public void setSigningBonus(Double signingBonus) {
-		this.signingBonus = signingBonus;
-	}
-	
-	public void setAnnualBonus(Double annualBonus) {
-		this.annualBonus = annualBonus;
 	}
 	
 	public void setLocation(String location) {
@@ -64,10 +60,6 @@ public class InfoInput {
 		this.age = age;
 	}
 	
-	public void setStability(Integer stability) {
-		this.stability = stability;
-	}
-	
 	public void setCulture(Integer culture) {
 		this.culture = culture;
 	}
@@ -80,4 +72,43 @@ public class InfoInput {
 		this.workLifeBalance = workLifeBalance;
 	}
 	// getters
+	public Double getSalary() {
+		return salary;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+	
+	public Double getCommuteTime() {
+		return commuteTime;
+	}
+	
+	public Boolean getRemote() {
+		return remote;
+	}
+	
+	public Boolean getInsurance() {
+		return insurance;
+	}
+	
+	public Integer getSize() {
+		return size;
+	}
+	
+	public Integer getAge() {
+		return age;
+	}
+	
+	public Integer getCulture() {
+		return culture;
+	}
+	
+	public Integer getOpportunity() {
+		return opportunity;
+	}
+	
+	public Integer getWorkLifeBalance() {
+		return workLifeBalance;
+	}
 }
