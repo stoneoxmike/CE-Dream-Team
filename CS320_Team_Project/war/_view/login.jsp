@@ -58,13 +58,14 @@
 					</tr>
 				</table>
 				
-				<c:if test="${! empty errorMessage}">
-					<div class="error">${errorMessage}</div>
-				</c:if>
+				
 					<div id = "Submit">
 							<input type="Submit" name="" value="Contnue" id = "label_3">
 					</div>
 				</form>
+				<c:if test="${! empty errorMessage}">
+					<div class="error">${errorMessage}</div>
+				</c:if>
 		</div>
 	</body>
 </html>

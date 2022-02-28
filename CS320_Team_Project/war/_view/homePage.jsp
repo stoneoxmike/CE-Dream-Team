@@ -29,7 +29,12 @@
 				align-items: center;
 				border-style: dotted;
 				padding: 20px;
-				width: 550px;
+				width: auto;
+			}
+			#photo {
+				image-rendering: auto;
+				image-rendering: crisp-edges;
+				image-resolution: from-image;
 			}
 			h1{
 				text-size-adjust: 500%;
@@ -52,7 +57,12 @@
 				color: black;
 				block-size: 150px;
 			}
-			.button1 {background-color: palegoldenrod;} /* Green */
+			.button1 {background-color: palegoldenrod;} /* pinkish */
+			.photo1 {
+				width: 35%;
+				height: 30%;
+				align-items: center;
+			}
 		</style>
 	</head>
 
@@ -78,7 +88,10 @@
 					time accessing this webpage, please configure your first job comparison page. To do this, click on the <i>Info Input</i> button and proceed through the questionaire.
 					After completing the questions with the correct information, click submit and proceed to your profile page to ensure it was recorded correctly.
 					Complete a second job input and compare the two using the <i>Job Comparison</i> button. 
+					<br> </br>
 				</p>
-			</div>	
+			</div>
+			<div> <br> </br> </div>
+			<img src = "Job_1.png" alt = "Cool Job Photo" class = "photo photo1">
 	</body>
 </html>
