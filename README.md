@@ -8,3 +8,4 @@ Michael Geyer<br/>
 Job Comparison Application
 ## Installation of IDE & Software 
 Import both CS320_Jetty9 and CS320_Team_Project as Projects in Eclipse.
+Projects will include all extension files (i.e. jpg, png, xlsx) 
