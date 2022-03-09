@@ -4,6 +4,8 @@ import java.io.File;
 
 import org.eclipse.jetty.server.Server;
 
+import edu.ycp.cs320.teamProject.storage.Information;
+
 public class Main {
 	public static void main(String[] args) throws Exception {
 		String webappCodeBase = "./war";
@@ -21,6 +23,14 @@ public class Main {
 		// dump the console output - this will produce a lot of red text - no worries, that is normal		
 		// Inform user that server is running
 		System.out.println("RUNNING: web server on port 8081");
+		
+		
+		//to test the get Rating method
+		//---------------------------------
+		Information test = new Information();
+		test.getRating();
+		//---------------------------------
+		
 		
         // The use of server.join() the will make the current thread join and
         // wait until the server is done executing.

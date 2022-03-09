@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.ycp.cs320.teamProject.controller.InfoInputController;
 import edu.ycp.cs320.teamProject.model.InfoInput;
+import edu.ycp.cs320.teamProject.storage.Information;
 
 public class InfoInputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
