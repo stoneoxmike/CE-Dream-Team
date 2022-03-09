@@ -1,5 +1,20 @@
 package edu.ycp.cs320.teamProject.storage;
 
-public class Co_op {
+//Inheritance call 
+	class Co_op extends Information{
 
+//Fields 
+		
+	private int length; 
+	private int resumeStrength; 
+	private int credits; 
+	
+	
+//Constructors 
+	public Co_op(int length, int resumeStrength, int credits){
+		this.length = length; 
+		this.credits = credits; 
+		this.resumeStrength = resumeStrength; 
+	}
+		
 }
