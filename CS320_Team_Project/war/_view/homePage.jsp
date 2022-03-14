@@ -70,16 +70,18 @@
 		<div id = "background">
 		<h1 id = "h1">CE Dream Team - Job Comparison Website <br> Vin Pagano; Michael Geyer; Brody Hageneder</br></h1>
 		</div>
+		<form action="${pageContext.servletContext.contextPath}/home" method="post">
 			<div id = "bannerRight">
-			<button class="button button1"; type = "submit" value="logOut">Log Out</button>
+			<button class="button button1"; type = "Submit" name="value" value ="logOut">Log Out</button>
 			<br>
-			<button class="button button1"; type = "submit" value="Profile">Profile</button>
+			<button class="button button1"; type = "Submit" name="value" value = "Profile">Profile</button>
 			</br>
-			<button class="button button1"; type = "submit" value="Job Comparison">Job Comparison</button>
+			<button class="button button1"; type = "Submit" name="value" value="Job Comparison">Job Comparison</button>
 			<br>
-			<button class="button button1"; type = "submit" value="Info Page">Info Input</button>
+			<button class="button button1"; type = "Submit" name="value" value="Info Input">Info Input</button>
 			</br>
 			</div>
+		</form>
 			<div id = "textCenter">
 				<h2 id = "h1"> What to do next: </h2>
 				<p class = text>

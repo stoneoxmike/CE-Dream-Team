@@ -11,6 +11,7 @@ public class LoginController {
 	
 	public LoginController() {
 		map = new HashMap<String, String>();
+		map.put("admin", "12345");
 	}
 	
 	public boolean login(Login model) {
@@ -21,8 +22,9 @@ public class LoginController {
 				return false;
 			}
 		} else {
-			map.put(model.getUsername(), model.getPassword());
-			return true;
+			return false;
+			//map.put(model.getUsername(), model.getPassword());
+			//return true;
 		}
 	}
 }

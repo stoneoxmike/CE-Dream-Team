@@ -28,6 +28,7 @@ public class InformationTest {
         assertTrue(test2.getRating() == 6.0);
         assertTrue(test3.getRating() == 0.0);
         assertTrue(test4.getRating() == 0.2);
+        
     }
 
     //test getter methods
