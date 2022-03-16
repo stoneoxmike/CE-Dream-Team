@@ -101,7 +101,7 @@
 				if applicable</br></p>
 				<form action="${pageContext.servletContext.contextPath}/jobComparison" method="post">
 					<div class="dropdown">
-						<button class="dropbtn dropbtn_1">Dropdown</button>
+						<button class="dropbtn">Dropdown 1</button>
 						<div class="dropdown-content">
 						  <a src="Example.png" alt="Example Photo Here">Example Photo</a> 
 						  <a src = "JobExample1.png" alt = "First Job Example Photo">First Job Example Photo</a>
@@ -109,7 +109,7 @@
 						</div>
 					</div>
 					<div class="dropdown">
-						<button class="dropbtn dropbtn_2">Dropdown</button>
+						<button class="dropbtn">Dropdown 2</button>
 						<div class="dropdown-content">
 						  <a src="Example.png" alt="Example Photo Here">Example Photo</a> 
 						  <a src = "JobExample1.png" alt = "First Job Example Photo">First Job Example Photo</a>

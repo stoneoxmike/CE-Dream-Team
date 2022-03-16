@@ -51,13 +51,56 @@ public class Information {
 		{
 			//temporary variable
 			double rating;
+			int temp = sizeWeight + ageWeight + cultureWeight + opportunityWeight + workLifeBalanceWeight + salaryWeight;
 			//divide by 36 because it is the highest possible rating 
 			//which allows us to keep it as a baseline
 			//then multiply by the amount of ratings (6) to get the averaged rating for the job
-						//size / 36
-			rating =  ((((double)sizeWeight/36.0) + ((double)ageWeight/36.0) + ((double)cultureWeight/36.0) + ((double)opportunityWeight/36.0) + ((double)workLifeBalanceWeight/36.0) + ((double)salaryWeight/36.0))*6.0);
-			//take rating and change it to a precision of 1 decmial
-			System.out.println(rating);
+			
+			//gets the double rating
+			rating = ((double)temp)/36.0; 
+			
+			//multiply rating by a scale of 6.0
+			rating = rating * 6.0;
+			
+			//create temporary variables
+			double firstTemp;
+			double secondTemp;
+			double thirdTemp;
+			int tempOne;
+			int tempTwo;
+			//this is where its about to get messy
+			//because the rating sometimes doesn't round correctly
+			//and won't pass the unit tests. As such
+			//I wrote the program below to correctly round the rating
+			
+			//turn rating into an integer
+			tempOne = (int)rating;
+			//subtract the double rating by the integer rating to get the remaining decimals (tenths place)
+			firstTemp = rating - tempOne;
+			//turn the decimal into a whole number
+			secondTemp = firstTemp * 10;
+			//turn that double into an integer
+			thirdTemp = (int)secondTemp;
+			//subtract the double by the integer to get the hundreth's place
+			firstTemp = secondTemp - thirdTemp;
+			//turn that decimal into a whole number and get its integer
+			tempTwo = (int)(firstTemp*10);
+			//logic check to round up or down correctly
+			if (tempTwo >= 5)
+			{
+				tempTwo = 1;
+			}
+			else 
+			{
+				tempTwo = 0;
+			}
+			//add the integer number with the correct rounding of 1 or 0
+			secondTemp = (int)secondTemp + tempTwo;
+			//divide by ten to return the whole number to a decimal in the tenths place
+			secondTemp = secondTemp/10;
+			//return this value to rating by adding the double value of the original
+			//integer rating with the new correct rounding 
+			rating = (double)tempOne + secondTemp;
 			//return rating
 			return rating;
 			
