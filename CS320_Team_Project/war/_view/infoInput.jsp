@@ -5,9 +5,26 @@
 <html>
 	<head>
 		<title>Information Input</title>
+		<style type="text/css">
+		#background {
+				border-style: solid;
+				border-width: 10px;
+				border-color: black;
+				background-color: #305c54;
+				padding:50px;
+			}	
+		</style>
 	</head>
-
+	
 	<body>
+	
+	<div id = "background">
+		<h1 id = "h1">CE Dream Team - Job Comparison Website <br> Vin Pagano; Michael Geyer; Brody Hageneder</br></h1>
+	</div>
+		
+	<div>
+		
+	</div>
 		<form action="${pageContext.servletContext.contextPath}/infoInput" method="post">
 			<c:if test="${empty game}">
 				<input name="startGame" type="submit" value="Start game" />
@@ -20,16 +37,7 @@
 					<div>
 						<input name="startGame" type="submit" value="Play again" />
 					</div>
-				</c:if>
-				<c:if test="${!game.done}">
-					<div>
-						Are you thinking of ${game.guess}?
-					</div>
-					<div>
-						<input name="gotIt" type="submit" value="Yes, that's it!" />
-						<input name="less" type="submit" value="No, that's too big" />
-						<input name="more" type="submit" value="No, that's too small" />
-						
+					<div>						
 						<input name="min" type="hidden" value="${game.min}" />
 						<input name="max" type="hidden" value="${game.max}" />
 					</div>
