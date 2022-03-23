@@ -42,6 +42,7 @@
 	<div id = "textCenter">
 				<h2 id = "h1"> Information Input: </h2>
 				<p class = text>
+				<!--Short description of infoInput-->
 					 Here is where you can enter your personal information, as well as your ratings for various things a position offers.
 					 Please rate these from 0-6, 6 being the most important to you.
 					<br> 
@@ -72,6 +73,7 @@
 					</tr>
 				</table>
 				<br>
+				<!--Submit button -->
 				<button class="button button1"; type= "Submit" name ="value" value="submit">Submit</button>
 				</form>
 
