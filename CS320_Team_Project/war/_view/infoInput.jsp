@@ -2,10 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
+<!--More div ids might be needed-->
+
 <html>
 	<head>
 		<title>Information Input</title>
 		<style type="text/css">
+		
 		#background {
 				border-style: solid;
 				border-width: 10px;
@@ -71,11 +74,6 @@
 				<br>
 				<button class="button button1"; type= "Submit" name ="value" value="submit">Submit</button>
 				</form>
-				
-	
-	
-	
-	
 
 	</body>
 </html>
