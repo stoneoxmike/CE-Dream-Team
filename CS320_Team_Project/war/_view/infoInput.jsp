@@ -15,11 +15,17 @@
 				border-color: black;
 				background-color: #305c54;
 				padding:50px;
-			}	
-			#label_2 {
-			text-align: left;
-			text-color: #3c857d;
-			font-size: 125%;
+		}	
+		
+		#h4 {
+				text-align: left;
+				text-color: #3c857d;
+				font-size: 125%;
+		}
+		
+		h1 {
+				text-align:center;
+				text-color: #3c857d;
 		}
 		
 	    #textCenter {
@@ -29,7 +35,8 @@
 				border-style: solid;
 				padding: 10px;
 				width: auto;
-			}
+		}
+
 		</style>
 	</head>
 	
@@ -48,34 +55,80 @@
 					<br> 
 				</p>
 			</div>
-		<!--5 entry boxes for information input; none are functional currently-->
-		<form action="${pageContext.servletContext.contextPath}/home" method="post">
-					<table>
-					<tr>
-						<td class="label_2">Rating1:</td>
-						<td><input type="text" name="r1" value="" /></td>
-					</tr>
-					<tr>
-						<td class="label_2">Rating2:</td>
-						<td><input type="text" name="r2" value="" /></td>
-					</tr>
-					<tr>
-						<td class="label_2">Rating3:</td>
-						<td><input type="text" name="r3" value="" /></td>
-					</tr>
-					<tr>
-						<td class="label_2">Rating4:</td>
-						<td><input type="text" name="r4" value="" /></td>
-					</tr>
-					<tr>
-						<td class="label_2">Rating5:</td>
-						<td><input type="text" name="r5" value="" /></td>
-					</tr>
-				</table>
-				<br>
-				<!--Submit button -->
-				<button class="button button1"; type= "Submit" name ="value" value="submit">Submit</button>
-				</form>
-
+		<!--5 drop-down boxes for information input-->
+		<title>DropDown List</title>
+	</head>
+		<h4>Size</h4>
+			<form>
+			<select name = "dropdown1">
+				<option value = "0" selected>0</option>
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+				<option value = "6">6</option>
+			</select>
+		</form>
+		<h4>Age</h4>
+			<form>
+			<select name = "dropdown1">
+				<option value = "0" selected>0</option>
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+				<option value = "6">6</option>
+			</select>
+		</form>
+		<h4>Culture</h4>
+			<form>
+			<select name = "dropdown1">
+				<option value = "0" selected>0</option>
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+				<option value = "6">6</option>
+			</select>
+		</form>
+		<h4>Opportunity</h4>
+			<form>
+			<select name = "dropdown1">
+				<option value = "0" selected>0</option>
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+				<option value = "6">6</option>
+			</select>
+		</form>
+		<h4>Work-Life Balance</h4>
+			<form>
+			<select name = "dropdown1">
+				<option value = "0" selected>0</option>
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+				<option value = "6">6</option>
+			</select>
+		</form>
+		<h4>Salary</h4>
+			<form>
+			<select name = "dropdown1">
+				<option value = "0" selected>0</option>
+				<option value = "1">1</option>
+				<option value = "2">2</option>
+				<option value = "3">3</option>
+				<option value = "4">4</option>
+				<option value = "5">5</option>
+				<option value = "6">6</option>
+			</select>
+		</form>
 	</body>
 </html>
