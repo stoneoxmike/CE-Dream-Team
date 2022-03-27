@@ -2,8 +2,10 @@ package edu.ycp.cs320.teamProject.main;
 
 import java.io.File;
 
+
 import org.eclipse.jetty.server.Server;
 
+import edu.ycp.cs320.teamProject.derbyDatabase.Derby;
 import edu.ycp.cs320.teamProject.storage.Information;
 
 public class Main {
@@ -31,7 +33,12 @@ public class Main {
 		test.getRating();
 		//---------------------------------
 		
-		
+		//test derby database
+		//---------------------------------
+		//Derby database = new Derby();
+		//database.createDatabase();
+		//---------------------------------
+	
         // The use of server.join() the will make the current thread join and
         // wait until the server is done executing.
         // See http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()

@@ -5,6 +5,11 @@
 	<classpathentry kind="src" output="bin" path="main"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/CS320_Jetty9"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CS320_Jetty9"/>
+	<classpathentry kind="lib" path="C:/Users/minet/Documents/GitHub/CE-Dream-Team/CS320_Derby/lib/derby.jar"/>
+	<classpathentry kind="lib" path="C:/Users/minet/Documents/GitHub/CE-Dream-Team/CS320_Derby/lib/derbyclient.jar"/>
+	<classpathentry kind="lib" path="C:/Users/minet/Documents/GitHub/CE-Dream-Team/CS320_Derby/lib/derbynet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/minet/Documents/GitHub/CE-Dream-Team/CS320_Derby/lib/derbyrun.jar"/>
+	<classpathentry kind="lib" path="C:/Users/minet/Documents/GitHub/CE-Dream-Team/CS320_Derby/lib/derbytools.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
