@@ -55,80 +55,89 @@
 					<br> 
 				</p>
 			</div>
+			
+			<div>
+				<h2 id = "h1"> How much do you value... </h2>
+
+				</p>
+			</div>
 		<!--5 drop-down boxes for information input-->
 		<title>DropDown List</title>
 	</head>
 		<h4>Size</h4>
 			<form>
-			<select name = "dropdown1">
-				<option value = "0" selected>0</option>
-				<option value = "1">1</option>
-				<option value = "2">2</option>
-				<option value = "3">3</option>
-				<option value = "4">4</option>
-				<option value = "5">5</option>
-				<option value = "6">6</option>
+			<select name = "ddSize">
+				<option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
 		<h4>Age</h4>
 			<form>
-			<select name = "dropdown1">
-				<option value = "0" selected>0</option>
-				<option value = "1">1</option>
-				<option value = "2">2</option>
-				<option value = "3">3</option>
-				<option value = "4">4</option>
-				<option value = "5">5</option>
-				<option value = "6">6</option>
+			<select name = "ddAge">
+            	<option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
 		<h4>Culture</h4>
 			<form>
-			<select name = "dropdown1">
-				<option value = "0" selected>0</option>
-				<option value = "1">1</option>
-				<option value = "2">2</option>
-				<option value = "3">3</option>
-				<option value = "4">4</option>
-				<option value = "5">5</option>
-				<option value = "6">6</option>
+			<select name = "ddCulture">
+                <option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
 		<h4>Opportunity</h4>
 			<form>
-			<select name = "dropdown1">
-				<option value = "0" selected>0</option>
-				<option value = "1">1</option>
-				<option value = "2">2</option>
-				<option value = "3">3</option>
-				<option value = "4">4</option>
-				<option value = "5">5</option>
-				<option value = "6">6</option>
+			<select name = "ddOpportunity">
+			    <option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
 		<h4>Work-Life Balance</h4>
 			<form>
-			<select name = "dropdown1">
-				<option value = "0" selected>0</option>
-				<option value = "1">1</option>
-				<option value = "2">2</option>
-				<option value = "3">3</option>
-				<option value = "4">4</option>
-				<option value = "5">5</option>
-				<option value = "6">6</option>
+			<select name = "ddWLBalance">
+				<option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
 		<h4>Salary</h4>
 			<form>
-			<select name = "dropdown1">
-				<option value = "0" selected>0</option>
-				<option value = "1">1</option>
-				<option value = "2">2</option>
-				<option value = "3">3</option>
-				<option value = "4">4</option>
-				<option value = "5">5</option>
-				<option value = "6">6</option>
+			<select name = "ddSalary">
+		        <option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
+				<!--Submit button -->
+		<br>
+				<button class="button button1"; type= "Submit" name ="Submit" value="submit">Submit</button>
 	</body>
 </html>
