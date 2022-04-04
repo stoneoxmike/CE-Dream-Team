@@ -80,6 +80,8 @@ public class LoginServlet extends HttpServlet {
 				req.setAttribute("username", "username");
 				req.setAttribute("password", "password");
 				//use controller to store and retrieve from database
+//				LoginController controller = new LoginController();
+//				if (controller.login(model)) {
 				User user = new User(model.getUsername(), model.getPassword());
 				if (user.login(model.getPassword())) {
 					// if credentials are correct, doGet homePage
