@@ -31,5 +31,6 @@
 			<attribute name="javadoc_location" value="http://db.apache.org/derby/docs/10.10/publishedapi/jdbc4/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/CS320_Derby"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

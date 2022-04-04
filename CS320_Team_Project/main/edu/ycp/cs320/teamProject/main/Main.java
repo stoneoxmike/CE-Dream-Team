@@ -35,8 +35,7 @@ public class Main {
 		
 		//test derby database
 		//---------------------------------
-		//Derby database = new Derby();
-		//database.createDatabase();
+		Derby.main(args);
 		//---------------------------------
 	
         // The use of server.join() the will make the current thread join and
