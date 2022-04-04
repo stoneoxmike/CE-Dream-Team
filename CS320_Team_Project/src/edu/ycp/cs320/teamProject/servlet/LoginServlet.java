@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import edu.ycp.cs320.teamProject.controller.LoginController;
 import edu.ycp.cs320.teamProject.model.Login;
-import edu.ycp.cs320.teamProject.storage.User;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -80,8 +79,8 @@ public class LoginServlet extends HttpServlet {
 				req.setAttribute("username", "username");
 				req.setAttribute("password", "password");
 				//use controller to store and retrieve from database
-				User user = new User(model.getUsername(), model.getPassword());
-				if (user.login(model.getPassword())) {
+				LoginController controller = new LoginController();
+				if (controller.login(model)) {
 					// if credentials are correct, doGet homePage
 					System.out.println("login successful");
 					HomePageServlet servlet = new HomePageServlet();
