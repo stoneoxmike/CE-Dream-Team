@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+//Code from Lab 5
+
 /**
  * Some database utility functions.
  */
