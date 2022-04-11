@@ -22,6 +22,10 @@
   	<servlet-name>JobComparisonServlet</servlet-name>
   	<servlet-class>edu.ycp.cs320.teamProject.servlet.JobComparisonServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<servlet-class>edu.ycp.cs320.teamProject.servlet.ProfileServlet</servlet-class>
+  </servlet>
 
   <!-- Servlet mappings -->
   <servlet-mapping>
@@ -39,5 +43,9 @@
   <servlet-mapping>
   	<servlet-name>JobComparisonServlet</servlet-name>
   	<url-pattern>/compare</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<url-pattern>/profile</url-pattern>
   </servlet-mapping>
 </web-app>

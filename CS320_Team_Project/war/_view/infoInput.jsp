@@ -23,6 +23,9 @@
 				text-color: #3c857d;
 				font-size: 125%;
 		}
+		#h5{
+				float: right;
+		}
 		
 		h1 {
 				text-align:center;
@@ -36,6 +39,11 @@
 				border-style: solid;
 				padding: 10px;
 				width: auto;
+		}
+		#label_2 {
+				text-align: left;
+				text-color: #3c857d;
+				font-size: 125%;
 		}
 		.button {
 			  float: none;
@@ -87,7 +95,37 @@ function submitFunction() {
 			
 		<!--5 drop-down boxes for information input-->
 		<title>DropDown List</title>
-	</head>
+		<h5>
+			<form>
+				<table name = "valueinputs">
+					<tr>
+						<td class="label_2">Salary:</td>
+						<td><input type="text" name="salary" value="" /></td>
+					</tr>
+					<tr>
+						<td class="label_2">Location:</td>
+						<td><input type="text" name="location" value="" /></td>
+					</tr>
+					<tr>
+						<td class="label_2">Housing Stipend Amount:</td>
+						<td><input type="text" name="housingStipend" value="" /></td>
+					</tr>
+					<tr>
+						<td class="label_2">Time to Commute: </td>
+						<td><input type="text" name="commuteTime" value="" /></td>
+					</tr>
+					<tr>
+						<td class="label_2">Remote work:</td>
+						<form>
+							<select name = "remote">
+								<option value = "false" selected>False</option>
+								<option value = "true">True</option>
+							</select>
+						</form>
+					</tr>
+				</table>
+			</form>
+			</h5>
 		<h4>Size</h4>
 			<form>
 			<select name = "ddSize">
