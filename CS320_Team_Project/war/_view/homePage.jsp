@@ -35,6 +35,10 @@
 				image-rendering: auto;
 				image-rendering: crisp-edges;
 				image-resolution: from-image;
+				/*trying to center inage*/
+				margin-left: auto;
+  				margin-right: auto;
+  				width: 75%; 
 			}
 			h1{
 				text-size-adjust: 500%;

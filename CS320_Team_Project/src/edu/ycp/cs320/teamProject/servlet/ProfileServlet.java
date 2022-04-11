@@ -7,26 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.ycp.cs320.teamProject.controller.HomePageController;
-
-public class HomePageServlet extends HttpServlet {
+public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-
-		System.out.println("HomePage Servlet: doGet");	
 		
-		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+		System.out.println("Profile Servlet: doGet");
+		
+		req.getRequestDispatcher("/_view/profile.jsp").forward(req, resp);
 	}
-	
-	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("HomePage Servlet: doPost");
+		System.out.println("Profile Servlet: doPost");
 		
 
 		// holds the error message text, if there is any
@@ -51,34 +46,15 @@ public class HomePageServlet extends HttpServlet {
 			// must create the controller each time, since it doesn't persist between POSTs
 			// the view does not alter data, only controller methods should be used for that
 			// thus, always call a controller method to operate on the data
-			System.out.println(value);
+			
+			
 		//setup logic for the buttons located on the right side of the home page to allow for 
 		//easy movement across the pages
-		if (value.equals("logOut"))
+		if (value.equals("back"))
 		{
-			LoginServlet server = new LoginServlet();
+			HomePageServlet server = new HomePageServlet();
 			server.doGet(req, resp);
 		}
-		/*else if (value.equals("Profile"))
-		{
-			ProfileServlet server = new Profile();
-			server.doGet(req, resp);
-		}*/
-		else if (value.equals("Job Comparison"))
-		{
-			JobComparisonServlet server = new JobComparisonServlet();
-			server.doGet(req, resp);
-		}
-		else if (value.equals("Info Input")) {
-			InfoInputServlet server = new InfoInputServlet();
-			server.doGet(req, resp);
-		}
-		
-		else if (value.equals("Profile")) {
-			ProfileServlet server = new ProfileServlet();
-			server.doGet(req, resp);
-		}
-		
 		else {
 			errorMessage = null;
 			req.setAttribute("submit", "submit");

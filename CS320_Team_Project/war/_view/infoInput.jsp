@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!--More div ids might be needed-->
+<!--Info input for each job listing -->
+<!--Need input for rating each aspect of a job, how important each is to them, and how much they like what each category from each company offers-->
 
 <html>
 	<head>
@@ -12,7 +14,6 @@
 		#background {
 				border-style: solid;
 				border-width: 10px;
-				border-color: black;
 				background-color: #305c54;
 				padding:50px;
 		}	
@@ -36,15 +37,37 @@
 				padding: 10px;
 				width: auto;
 		}
+		.button {
+			  float: none;
+			  border: solid;
+			  color:black;
+			  padding: 15px 32px;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			  font-size: 16px;
+			  margin: 4px 2px;
+			  cursor: pointer;
+			}
 
 		</style>
 	</head>
 	
 	<body>
-    
-	<div id = "background">
-		<h1 id = "h1">CE Dream Team - Job Comparison Website <br> Vin Pagano; Michael Geyer; Brody Hageneder</br></h1>
-	</div>
+	
+<h2>JavaScript Alert</h2>
+
+<!-- Script for browser pop-up-->
+<script>
+function submitFunction() {
+  alert("Form submitted successfully!");
+}
+</script>
+
+	<!-- Back button and submit takes you back to homepage; no other interaction -->
+	<form action="${pageContext.servletContext.contextPath}/home" method="post">
+				<button class="button"; type= "Submit" name ="Submit" value="submit">Back</button>
+			</form>
 	
 	<div id = "textCenter">
 				<h2 id = "h1"> Information Input: </h2>
@@ -61,6 +84,7 @@
 
 				</p>
 			</div>
+			
 		<!--5 drop-down boxes for information input-->
 		<title>DropDown List</title>
 	</head>
@@ -136,8 +160,10 @@
 				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
-				<!--Submit button -->
+<!--Submit button w/successful submission popup; want this to appear once homePage is posted -->
 		<br>
-				<button class="button button1"; type= "Submit" name ="Submit" value="submit">Submit</button>
+		<form action="${pageContext.servletContext.contextPath}/home" method="post">
+				<button onclick="submitFunction()"; class="button"; type= "Submit" name ="Submit" value="submit" >Submit</button>
+			</form>
 	</body>
 </html>
