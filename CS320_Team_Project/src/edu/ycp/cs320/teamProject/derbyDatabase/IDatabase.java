@@ -8,10 +8,11 @@ import edu.ycp.cs320.teamProject.storage.Job;
 import edu.ycp.cs320.teamProject.model.Pair;
 
 public interface IDatabase {
-	public List<Pair<User, Job>> findAuthorAndBookByTitle(String title);
-	public List<Pair<User, Job>> findAuthorAndBookByAuthorLastName(String lastName);
-	public Integer insertBookIntoBooksTable(String title, String isbn, int published, String lastName, String firstName);
-	public List<Pair<User, Job>> findAllBooksWithAuthors();
-	public List<User> findAllAuthors();
-	public List<Job> removeBookByTitle(String title);		
+	public List<Pair<User, Job>> findUserByID(String id);
+	public List<Pair<User, Job>> findAllJobsByUserID(String id);
+	public Integer insertUser(String username, String password);
+	public Integer insertFulltimeIntoJobsTable(String title, String isbn, int published, String lastName, String firstName);
+	public Integer insertCoopIntoJobsTable(String title, String isbn, int published, String lastName, String firstName);
+	public Integer insertInternshipIntoJobsTable(String title, String isbn, int published, String lastName, String firstName);
+	public List<Job> removeJobByTitle(String title);		
 }
