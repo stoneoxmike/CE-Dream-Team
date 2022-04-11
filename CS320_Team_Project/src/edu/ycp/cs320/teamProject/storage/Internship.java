@@ -1,7 +1,7 @@
 package edu.ycp.cs320.teamProject.storage;
 
 // Inheritance Call
-public class Internship extends Information {
+public class Internship extends Job {
 	//Fields 
 	
 		private int length; 

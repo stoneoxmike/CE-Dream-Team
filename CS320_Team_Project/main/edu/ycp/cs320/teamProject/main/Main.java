@@ -6,7 +6,7 @@ import java.io.File;
 import org.eclipse.jetty.server.Server;
 
 import edu.ycp.cs320.teamProject.derbyDatabase.Derby;
-import edu.ycp.cs320.teamProject.storage.Information;
+import edu.ycp.cs320.teamProject.storage.Job;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
@@ -29,7 +29,7 @@ public class Main {
 		
 		//to test the get Rating method
 		//---------------------------------
-		Information test = new Information();
+		Job test = new Job();
 		test.getRating();
 		//---------------------------------
 		

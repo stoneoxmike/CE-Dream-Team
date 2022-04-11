@@ -8,13 +8,20 @@ public class User {
 	// fields
 	private String username;
 	private String password;
+	private String encrypted;
+	private int userID;
 	
 	// Constructor
 	public User(String username, String password) {
 		this.username = username;
-		this.password = getMd5(password);
+		this.password = password;
+		this.encrypted = getMd5(password);
 	}
 	
+	public User() {
+		
+	}
+
 	public static String getMd5(String input)
     {
         try {
@@ -45,16 +52,30 @@ public class User {
 	
 	// compare input md5 to set md5
 	public Boolean login(String input) {
-		if (getMd5(input) == password) {
+		if (getMd5(input) == encrypted) {
 			return true;
 		}
 		return false;
 	}
 	
+	public int getUserID()
+	{
+		return userID;
+	}
+	public void setUserID(int userID)
+	{
+		this.userID = userID;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getPassword() {
 		return password;
 	}
-	
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
 	public String getUsername() {
 		return username;
 	}
