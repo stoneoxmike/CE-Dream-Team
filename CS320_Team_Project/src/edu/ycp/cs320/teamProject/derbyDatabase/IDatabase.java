@@ -11,8 +11,6 @@ public interface IDatabase {
 	public List<Pair<User, Job>> findUserByID(String id);
 	public List<Pair<User, Job>> findAllJobsByUserID(String id);
 	public Integer insertUser(String username, String password);
-	public Integer insertFulltimeIntoJobsTable(String title, String isbn, int published, String lastName, String firstName);
-	public Integer insertCoopIntoJobsTable(String title, String isbn, int published, String lastName, String firstName);
-	public Integer insertInternshipIntoJobsTable(String title, String isbn, int published, String lastName, String firstName);
+	public Integer insertJobIntoJobsTable(String title, Double salary, String location, int housingStipend, Double commuteTime, boolean remote, int size, int age, int culture, int opportunity, int workLifeBalance, boolean insurance, boolean pension, boolean pto, int signingBonus, int annualBonus, int jobLevel, int length, int resumeStrength, int credits, boolean fullTimeOpportunity, int sizeWeight, int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight);
 	public List<Job> removeJobByTitle(String title);		
 }
