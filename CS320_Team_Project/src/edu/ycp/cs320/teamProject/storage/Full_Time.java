@@ -19,26 +19,32 @@ public class Full_Time extends Job {
 	}
 	
 	// setters
-	public void setInsurance(boolean insurance) {
+	@Override
+	public void setInsurance(Boolean insurance) {
 		this.insurance = insurance;
 	}
 	
-	public void setPension(boolean pension) {
+	@Override
+	public void setPension(Boolean pension) {
 		this.pension = pension;
 	}
 	
-	public void setPto(boolean pto) {
+	@Override
+	public void setPto(Boolean pto) {
 		this.pto = pto;
 	}
 	
+	@Override
 	public void setSigningBonus(int signingBonus) {
 		this.signingBonus = signingBonus;
 	}
 	
-	public void setAnnulBonus(int annualBonus) {
+	@Override
+	public void setAnnualBonus(int annualBonus) {
 		this.annualBonus = annualBonus;
 	}
 	
+	@Override
 	public void setJobLevel(int jobLevel) {
 		this.jobLevel = jobLevel;
 	}
@@ -66,5 +72,29 @@ public class Full_Time extends Job {
 	
 	public int getJobLevel() {
 		return jobLevel;
+	}
+
+	@Override
+	public void setLength(int length) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setResumeStrength(int resumeStrength) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setCredits(int credits) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setFullTimeOpportunity(Boolean fullTimeOpportunity) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -1,6 +1,6 @@
 package edu.ycp.cs320.teamProject.storage;
 
-public class Job {
+public abstract class Job {
 		//intial fields
 		private Double salary;
 		private String location;
@@ -29,18 +29,18 @@ public class Job {
 		
 		
 		//constructor for testing rating
-		public Job(int sizeWeight, int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight)
-		{
-			//test variables
-			this.sizeWeight = sizeWeight;
-			this.ageWeight = ageWeight;
-			this.cultureWeight = cultureWeight;
-			this.opportunityWeight = opportunityWeight;
-			this.workLifeBalanceWeight = workLifeBalanceWeight;
-			this.salaryWeight = salaryWeight;
-		}
-		
-		//general constructor
+//		public Job(int sizeWeight, int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight)
+//		{
+//			//test variables
+//			this.sizeWeight = sizeWeight;
+//			this.ageWeight = ageWeight;
+//			this.cultureWeight = cultureWeight;
+//			this.opportunityWeight = opportunityWeight;
+//			this.workLifeBalanceWeight = workLifeBalanceWeight;
+//			this.salaryWeight = salaryWeight;
+//		}
+//		
+//		//general constructor
 		public Job()
 		{
 			
@@ -160,6 +160,21 @@ public class Job {
 		{
 			
 		}
+		
+		public void setOpportunityWeight(int opportunityWeight)
+		{
+			this.opportunityWeight = opportunityWeight;
+		}
+		
+		public void setWorkLifeBalanceWeight(int workLifeBalanceWeight)
+		{
+			this.workLifeBalanceWeight = workLifeBalanceWeight;
+		}
+		
+		public void setSalaryWeight(int salaryWeight)
+		{
+			this.salaryWeight = salaryWeight;
+		}
 		// getters
 		public int getHousingStipend()
 		{
@@ -229,6 +244,26 @@ public class Job {
 		{
 			return salaryWeight;
 		}
+
+		public abstract void setInsurance(Boolean insurance);
+
+		public abstract void setPension(Boolean pension);
+
+		public abstract void setPto(Boolean pto);
+
+		public abstract void setSigningBonus(int signingBonus);
+
+		public abstract void setAnnualBonus(int annualBonus);
+
+		public abstract void setJobLevel(int jobLevel);
+
+		public abstract void setLength(int length);
+
+		public abstract void setResumeStrength(int resumeStrength);
+
+		public abstract void setCredits(int credits);
+
+		public abstract void setFullTimeOpportunity(Boolean fullTimeOpportunity);
 		
 		
 }

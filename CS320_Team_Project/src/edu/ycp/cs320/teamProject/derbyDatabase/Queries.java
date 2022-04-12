@@ -1,11 +1,5 @@
 package edu.ycp.cs320.teamProject.derbyDatabase;
 
-<<<<<<< Updated upstream
-import edu.ycp.cs320.teamProject.derbyDatabase.DatabaseProvider;
-import edu.ycp.cs320.teamProject.derbyDatabase.IDatabase;
-
-public class Queries{
-=======
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,7 +14,6 @@ import edu.ycp.cs320.teamProject.storage.Job;
 import edu.ycp.cs320.teamProject.storage.User;
 
 public class Queries implements IDatabase {
->>>>>>> Stashed changes
 	static {
 		IDatabase db = DatabaseProvider.getInstance();
 		try {
@@ -64,12 +57,12 @@ public class Queries implements IDatabase {
 					while (resultSet.next()) {
 						found = true;
 						
-						Author author = new Author();
-						loadAuthor(author, resultSet, 1);
-						Book book = new Book();
-						loadBook(book, resultSet, 4);
+						Job job = new Job();
+						loadJob(job, resultSet, 1);
+						User user = new User();
+						loadUser(user, resultSet, 4);
 						
-						result.add(new Pair<User, Job>(author, book));
+						result.add(new Pair<User, Job>(user, job));
 					}
 					
 					// check if the title was found
@@ -174,34 +167,34 @@ public class Queries implements IDatabase {
 		
 		// retrieves Job information from query result set
 		private void loadJob(Job job, ResultSet resultSet, int index) throws SQLException {
-			job.setSalary(resultSet.getInt(index++));
+			job.setSalary(resultSet.getDouble(index++));
 			job.setLocation(resultSet.getString(index++));
-			job.setHousingStipend(resultSet.getString(index++));
-			job.setCommuteTime(resultSet.getString(index++));
-			job.setRemote(resultSet.getString(index++));
-			job.setSize(resultSet.getString(index++));
-			job.setAge(resultSet.getString(index++));
-			job.setCulture(resultSet.getString(index++));
-			job.setOpportunity(resultSet.getString(index++));
-			job.setWorkLifeBalance(resultSet.getString(index++));
-			job.setInsurance(resultSet.getString(index++));
-			job.setPension(resultSet.getString(index++));
-			job.setPto(resultSet.getString(index++));
-			job.setSigningBonus(resultSet.getString(index++));
-			job.setAnnualBonus(resultSet.getString(index++));
-			job.setJobLevel(resultSet.getString(index++));
+			job.setHousingStipend(resultSet.getInt(index++));
+			job.setCommuteTime(resultSet.getDouble(index++));
+			job.setRemote(resultSet.getBoolean(index++));
+			job.setSize(resultSet.getInt(index++));
+			job.setAge(resultSet.getInt(index++));
+			job.setCulture(resultSet.getInt(index++));
+			job.setOpportunity(resultSet.getInt(index++));
+			job.setWorkLifeBalance(resultSet.getInt(index++));
 			// TODO change following values depending on type of job
-			job.setLength(resultSet.getString(index++));
-			job.setResumeStrength(resultSet.getString(index++));
-			job.setCredits(resultSet.getString(index++));
-			job.setFullTimeOpportunity(resultSet.getString(index++));
+			job.setInsurance(resultSet.getBoolean(index++));
+			job.setPension(resultSet.getBoolean(index++));
+			job.setPto(resultSet.getBoolean(index++));
+			job.setSigningBonus(resultSet.getInt(index++));
+			job.setAnnualBonus(resultSet.getInt(index++));
+			job.setJobLevel(resultSet.getInt(index++));
+			job.setLength(resultSet.getInt(index++));
+			job.setResumeStrength(resultSet.getInt(index++));
+			job.setCredits(resultSet.getInt(index++));
+			job.setFullTimeOpportunity(resultSet.getBoolean(index++));
 			//
-			job.setSizeWeight(resultSet.getString(index++));
-			job.setAgeWeight(resultSet.getString(index++));
-			job.setCultureWeight(resultSet.getString(index++));
-			job.setOpportunityWeight(resultSet.getString(index++));
-			job.setWorkLifeBalanceWeight(resultSet.getString(index++));
-			job.setSalaryWeight(resultSet.getString(index++));
+			job.setSizeWeight(resultSet.getInt(index++));
+			job.setAgeWeight(resultSet.getInt(index++));
+			job.setCultureWeight(resultSet.getInt(index++));
+			job.setOpportunityWeight(resultSet.getInt(index++));
+			job.setWorkLifeBalanceWeight(resultSet.getInt(index++));
+			job.setSalaryWeight(resultSet.getInt(index++));
 		}
 		
 		// retrieves User information from query result set
@@ -209,5 +202,10 @@ public class Queries implements IDatabase {
 //			book.setAuthorId(resultSet.getInt(index++));  // no longer used
 			user.setUsername(resultSet.getString(index++));
 			user.setPassword(resultSet.getString(index++));
+		}
+		
+		private void loadUserJob(UserJob userJob, ResultSet resultSet, int index) throws SQLException {
+			userJob.setUserId(resultSet.getInt(index++));
+			userJob.setJobId(resultSet.getInt(index++));
 		}
 }
