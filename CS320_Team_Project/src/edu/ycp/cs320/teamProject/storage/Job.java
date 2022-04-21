@@ -2,6 +2,8 @@ package edu.ycp.cs320.teamProject.storage;
 
 public class Job {
 		//intial fields
+		private int jobID;
+		private String jobName;
 		private Double salary;
 		private String location;
 		private int housingStipend;
@@ -106,6 +108,14 @@ public class Job {
 			
 		}
 		
+		public void setJobID(int jobID)
+		{
+			this.jobID = jobID;
+		}
+		public void setJobName(String jobName)
+		{
+			this.jobName = jobName;
+		}
 		public void setHousingStipend(int housingStipend)
 		{
 			this.housingStipend = housingStipend;
@@ -161,6 +171,14 @@ public class Job {
 			
 		}
 		// getters
+		public int getJobID()
+		{
+			return jobID;
+		}
+		public String getJobName()
+		{
+			return jobName;
+		}
 		public int getHousingStipend()
 		{
 			return housingStipend;
