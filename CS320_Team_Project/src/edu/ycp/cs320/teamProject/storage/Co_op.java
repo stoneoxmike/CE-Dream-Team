@@ -16,5 +16,31 @@ package edu.ycp.cs320.teamProject.storage;
 		this.credits = credits; 
 		this.resumeStrength = resumeStrength; 
 	}
+	
+//setters
+	public void setLength(int length) {
+		this.length = length; 
+	}
+	
+	public void setresumeStrength(int resumeStrength) {
+		this.resumeStrength = resumeStrength; 
+	}
+	public void setCredits(int credits) {
+		this.credits = credits; 
+	}
+	
+//getters 
+	
+	public int getLength() {
+		return length;
+	}
+	
+	public int getresumeStrength() {
+		return resumeStrength;
+	}
+	
+	public int getCredits() {
+		return credits;
+	}
 		
 }

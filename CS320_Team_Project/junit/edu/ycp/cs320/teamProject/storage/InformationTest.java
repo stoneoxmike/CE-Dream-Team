@@ -22,6 +22,7 @@ public class InformationTest {
     	 general.setSalary(1010.10);
     }
 
+    //test getter methods
     @Test
     public void testGetRating() throws Exception {
     	assertTrue(test1.getRating() == 3.5);
@@ -31,7 +32,6 @@ public class InformationTest {
         
     }
 
-    //test getter methods
     @Test
     public void testGetSalary() throws Exception {
     	assertTrue(general.getSalary() == 1010.10);
