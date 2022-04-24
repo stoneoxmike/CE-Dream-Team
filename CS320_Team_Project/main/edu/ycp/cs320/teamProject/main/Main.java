@@ -35,12 +35,7 @@ public class Main {
 		
 		//test derby database
 		//---------------------------------
-<<<<<<< Updated upstream
 		Derby.main(args);
-=======
-		Derby database = new Derby();
-		database.main(args);
->>>>>>> Stashed changes
 		//---------------------------------
 	
         // The use of server.join() the will make the current thread join and
