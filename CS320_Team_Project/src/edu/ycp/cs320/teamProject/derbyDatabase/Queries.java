@@ -45,7 +45,7 @@ public class Queries implements IDatabase {
 							"    and authors.author_id = bookAuthors.author_id " +
 							"    and books.book_id     = bookAuthors.book_id"
 					);
-					stmt.setString(1, title);
+					stmt.setString(1, id);
 					
 					List<Pair<User, Job>> result = new ArrayList<Pair<User,Job>>();
 					
