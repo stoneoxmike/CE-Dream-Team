@@ -69,7 +69,7 @@ public class HomePageServlet extends HttpServlet {
 			JobComparisonServlet server = new JobComparisonServlet();
 			server.doGet(req, resp);
 		}
-		else if (value.equals("Info Page")) {
+		else if (value.equals("Info Input")) {
 			InfoInputServlet server = new InfoInputServlet();
 			server.doGet(req, resp);
 		}

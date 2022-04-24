@@ -29,8 +29,8 @@ public class Main {
 		
 		//to test the get Rating method
 		//---------------------------------
-		Job test = new Job();
-		test.getRating();
+//		Job test = new Job();
+//		test.getRating();
 		//---------------------------------
 		
 		//test derby database

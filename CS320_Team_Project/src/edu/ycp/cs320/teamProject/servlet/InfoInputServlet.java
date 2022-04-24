@@ -21,7 +21,7 @@ public class InfoInputServlet extends HttpServlet {
 		System.out.println("InfoInput Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/InfoInput.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/infoInput.jsp").forward(req, resp);
 	}
 	
 	@Override
