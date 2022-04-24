@@ -63,12 +63,12 @@
 	
 	<body>
 	
-<h2>JavaScript Alert</h2>
+<!--<h2>JavaScript Alert</h2>  -->
 
 <!-- Script for browser pop-up-->
 <script>
 function submitFunction() {
-  alert("Form submitted successfully!");
+  alert("Your form is being submitted. You will now be taken back to the homepage.");
 }
 </script>
 
@@ -198,7 +198,7 @@ function submitFunction() {
 				<option value = "6">Deciding Factor</option>
 			</select>
 		</form>
-<!--Submit button w/successful submission popup; want this to appear once homePage is posted -->
+<!--Submit button w/submission in progress popup -->
 		<br>
 		<form action="${pageContext.servletContext.contextPath}/home" method="post">
 				<button onclick="submitFunction()"; class="button"; type= "Submit" name ="Submit" value="submit" >Submit</button>

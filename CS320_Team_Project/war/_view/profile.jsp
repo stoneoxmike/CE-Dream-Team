@@ -24,7 +24,7 @@
 				padding: 20px;
 				width: auto;
 	}
-			.button {
+	.button {
 			  float: none;
 			  border: solid;
 			  color:black;
@@ -35,7 +35,13 @@
 			  font-size: 16px;
 			  margin: 4px 2px;
 			  cursor: pointer;
-			}
+	}
+	img{
+		border: solid;
+		color: black; 
+		float: center; 
+	}
+	
 	</style>
 	</head>
 	
@@ -46,12 +52,21 @@
 	</form>
 	<br>
 	<div id= "textCenter">
-	This is where compared jobs will be stored. 
+	Welcome to your profile! This is where compared jobs will be stored. 
 		</div>
 	<div>
-	
+	<br>
+	<br>
+	<img src="Profile Pic.png" width="200" height="200">
 		
 	</div>
+	
+	<br>
+	<br>
+	<div id= "textCenter">
+	Welcome to your profile! This is where compared jobs will be stored. 
+		</div>
+		
 	</body>
 
 </html>
