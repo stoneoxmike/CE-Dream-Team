@@ -41,7 +41,18 @@
 		text-align: center;
 		}
 	</style>
-		
+	
+<!-- Script for password hiding-->
+<script>
+function pwShowFunction() {
+	  var x = document.getElementById("pw");
+	  if (x.type === "password") {
+	    x.type = "text";
+	  } else {
+	    x.type = "password";
+	  }
+}
+</script>
 <body>
 		<div id = "LoginBox">
 			<h1 class = "h1"> Welcome! </h1>
@@ -54,9 +65,11 @@
 					</tr>
 					<tr>
 						<td class="label_2">Password:</td>
-						<td><input type="text" name="password" value="" /></td>
+						<td><input type="password" name="password" value="" id="pw"/>
+						</td>
 					</tr>
 				</table>
+					<input type="checkbox" onclick="pwShowFunction()">Show Password
 				
 				
 					<div id = "Submit">
