@@ -145,7 +145,7 @@ public class Information {
 		public void setWorkLifeBalance(Integer workLifeBalance) {
 			this.workLifeBalance = workLifeBalance;
 		}
-		
+
 		public void setSizeWeight(int sizeWeight)
 		{
 			this.sizeWeight = sizeWeight;
@@ -158,8 +158,21 @@ public class Information {
 		
 		public void setCultureWeight(int cultureWeight)
 		{
-			
+			this.cultureWeight = cultureWeight;
 		}
+		public void setOpportunityWeight(int opportunityWeight)
+		{
+			this.opportunityWeight = opportunityWeight;
+		}
+		public void setWorkLifeBalanceWeight(int workLifeBalanceWeight)
+		{
+			this.workLifeBalanceWeight = workLifeBalanceWeight;
+		}
+		public void setSalaryWeight(int salaryWeight)
+		{
+			this.salaryWeight = salaryWeight;
+		}
+		
 		// getters
 		public int getHousingStipend()
 		{

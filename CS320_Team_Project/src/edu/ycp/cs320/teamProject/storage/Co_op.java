@@ -13,8 +13,9 @@ package edu.ycp.cs320.teamProject.storage;
 //Constructors 
 	public Co_op(int length, int resumeStrength, int credits){
 		this.length = length; 
-		this.credits = credits; 
 		this.resumeStrength = resumeStrength; 
+		this.credits = credits; 
+		
 	}
 	
 //setters

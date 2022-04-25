@@ -1,6 +1,7 @@
 package edu.ycp.cs320.teamProject.derbyDatabase;
 
 import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.util.List;
 import edu.ycp.cs320.teamProject.model.Pair;
 import edu.ycp.cs320.teamProject.storage.Job;
 import edu.ycp.cs320.teamProject.storage.User;
+import edu.ycp.cs320.teamProject.storage.UserJob;
 
 public class Queries implements IDatabase {
 	static {
@@ -67,7 +69,7 @@ public class Queries implements IDatabase {
 					
 					// check if the title was found
 					if (!found) {
-						System.out.println("<" + title + "> was not found in the books table");
+						System.out.println("<" + id + "> was not found in the books table");
 					}
 					
 					return result;
@@ -205,7 +207,7 @@ public class Queries implements IDatabase {
 		}
 		
 		private void loadUserJob(UserJob userJob, ResultSet resultSet, int index) throws SQLException {
-			userJob.setUserId(resultSet.getInt(index++));
-			userJob.setJobId(resultSet.getInt(index++));
+			userJob.setUserID(resultSet.getInt(index++));
+			userJob.setJobID(resultSet.getInt(index++));
 		}
 }

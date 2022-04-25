@@ -19,24 +19,24 @@ public Co_op test1, test2, test3, test4;
 	//Tests for getters 
 	@Test
 	public void testgetresumeStrength() throws Exception{
-		assertTrue(test1.getresumeStrength() == 4);
-		assertTrue(test2.getresumeStrength() == 4);
-		assertTrue(test3.getresumeStrength() == 5);
-		assertTrue(test4.getresumeStrength() == 6);
+		assertTrue(test1.getresumeStrength() == 12);
+		assertTrue(test2.getresumeStrength() == 5);
+		assertTrue(test3.getresumeStrength() == 6);
+		assertTrue(test4.getresumeStrength() == 15);
 	}
 	@Test
 	public void testgetLength() throws Exception{
-		assertTrue(test1.getLength() == 12);
-		assertTrue(test2.getLength() == 5);
-		assertTrue(test3.getLength() == 6);
-		assertTrue(test4.getLength() == 15);
+		assertTrue(test1.getLength() == 4);
+		assertTrue(test2.getLength() == 4);
+		assertTrue(test3.getLength() == 5);
+		assertTrue(test4.getLength() == 6);
 	}
 	@Test
 	public void testgetCredits() throws Exception{
 		assertTrue(test1.getCredits() == 3);
-		assertTrue(test1.getCredits() == 4);
-		assertTrue(test1.getCredits() == 3);
-		assertTrue(test1.getCredits() == 3);
+		assertTrue(test2.getCredits() == 4);
+		assertTrue(test3.getCredits() == 2);
+		assertTrue(test4.getCredits() == 3);
 	}
 	
 	//Setting for new tests

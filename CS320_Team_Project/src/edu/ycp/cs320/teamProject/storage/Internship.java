@@ -74,8 +74,7 @@ public class Internship extends Job {
 
 
 		@Override
-		public void setCredits(int credits) {
-			// TODO Auto-generated method stub
+		public void setCredits(double credits) {
 			
 		}
 

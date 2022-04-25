@@ -1,6 +1,6 @@
 package edu.ycp.cs320.teamProject.storage;
 
-public abstract class Job {
+public class Job {
 		//intial fields
 		private int jobID;
 		private String jobName;
@@ -263,25 +263,66 @@ public abstract class Job {
 			return salaryWeight;
 		}
 
-		public abstract void setInsurance(Boolean insurance);
+		private boolean insurance;
+		private boolean pension;
+		private boolean pto;
+		private int signingBonus;
+		private int annualBonus;
+		private int jobLevel;
+		private int length;
+		private int resumeStrength;
+		private double credits;
+		private boolean fullTimeOpportunity;
+		
+		public void setInsurance(Boolean insurance)
+		{
+			this.insurance = insurance;
+		}
 
-		public abstract void setPension(Boolean pension);
+		public void setPension(Boolean pension)
+		{
+			this.pension = pension;
+		}
 
-		public abstract void setPto(Boolean pto);
+		public void setPto(Boolean pto)
+		{
+			this.pto = pto;
+		}
 
-		public abstract void setSigningBonus(int signingBonus);
+		public void setSigningBonus(int signingBonus)
+		{
+			this.signingBonus = signingBonus;
+		}
+		
+		public  void setAnnualBonus(int annualBonus)
+		{
+			this.annualBonus = annualBonus;
+		}
 
-		public abstract void setAnnualBonus(int annualBonus);
+		public  void setJobLevel(int jobLevel)
+		{
+			this.jobLevel = jobLevel;
+		}
 
-		public abstract void setJobLevel(int jobLevel);
+		public  void setLength(int length)
+		{
+			this.length = length;
+		}
 
-		public abstract void setLength(int length);
+		public  void setResumeStrength(int resumeStrength)
+		{
+			this.resumeStrength = resumeStrength;
+		}
 
-		public abstract void setResumeStrength(int resumeStrength);
+		public void setCredits(double credits)
+		{
+			this.credits = credits;
+		}
 
-		public abstract void setCredits(int credits);
-
-		public abstract void setFullTimeOpportunity(Boolean fullTimeOpportunity);
+		public void setFullTimeOpportunity(Boolean fullTimeOpportunity)
+		{
+			this.fullTimeOpportunity = fullTimeOpportunity;
+		}
 		
 		
 }

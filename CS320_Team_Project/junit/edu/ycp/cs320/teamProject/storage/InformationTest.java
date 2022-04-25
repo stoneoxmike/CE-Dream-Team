@@ -24,6 +24,7 @@ public class InformationTest {
     	 general.setLocation("detroit");
     	 general.setCommuteTime(20.0);
     	 general.setRemote(true);
+    	 general.setSalaryWeight(1);
     }
 
     @Test
@@ -76,13 +77,13 @@ public class InformationTest {
     	assertTrue(test1.getCultureWeight() == 5);
     }
     @Test
-    public void testopportunityWeight() throws Exception {
-    	assertTrue(test1.getSizeWeight() == 6);
+    public void testGetOpportunityWeight() throws Exception {
+    	assertTrue(test1.getOpportunityWeight() == 6);
     }
     
     @Test
-    public void testgetworkLifeBalanceWeight() throws Exception {
-    	assertTrue(test1.getWorkLifeBalance() == 3);
+    public void testGetWorkLifeBalanceWeight() throws Exception {
+    	assertTrue(test1.getWorkLifeBalanceWeight() == 3);
     }
     
     @Test
@@ -141,7 +142,7 @@ public class InformationTest {
     }
     @Test
     public void testsetopportunityWeight() throws Exception {
-    	test1.setOpportunity(4);
+    	test1.setOpportunityWeight(4);
     	assertTrue(test1.getOpportunityWeight() == 4);
     }
     
