@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 import edu.ycp.cs320.teamProject.model.Pair;
 import edu.ycp.cs320.teamProject.derbyDatabase.DatabaseProvider;
 import edu.ycp.cs320.teamProject.derbyDatabase.IDatabase;
+import edu.ycp.cs320.teamProject.storage.Full_Time;
 import edu.ycp.cs320.teamProject.storage.Job;
 import edu.ycp.cs320.teamProject.storage.User;
 import edu.ycp.cs320.teamProject.storage.UserJob;
@@ -272,6 +273,7 @@ public class Derby {
 				//using the username and password
 				User admin = new User(username, password);
 				//create a new Job object called sample
+				// TODO we need to change this or change Job to concrete
 				Job sample = new Job();
 				//Use setters within Job class to assigned values
 				sample.setSalary(inputSalary);
