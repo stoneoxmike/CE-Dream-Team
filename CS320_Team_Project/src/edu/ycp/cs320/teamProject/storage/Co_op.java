@@ -1,7 +1,7 @@
 package edu.ycp.cs320.teamProject.storage;
 
 //Inheritance call 
-	class Co_op extends Information{
+	class Co_op extends Job {
 
 //Fields 
 		

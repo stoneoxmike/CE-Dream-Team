@@ -1,6 +1,6 @@
 package edu.ycp.cs320.teamProject.storage;
 
-public class Full_Time extends Information {
+public class Full_Time extends Job {
 	// full time fields
 	private boolean insurance;
 	private boolean pension;

@@ -31,16 +31,16 @@ public class Job {
 		
 		
 		//constructor for testing rating
-//		public Job(int sizeWeight, int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight)
-//		{
-//			//test variables
-//			this.sizeWeight = sizeWeight;
-//			this.ageWeight = ageWeight;
-//			this.cultureWeight = cultureWeight;
-//			this.opportunityWeight = opportunityWeight;
-//			this.workLifeBalanceWeight = workLifeBalanceWeight;
-//			this.salaryWeight = salaryWeight;
-//		}
+		public Job(int sizeWeight, int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight)
+		{
+			//test variables
+			this.sizeWeight = sizeWeight;
+			this.ageWeight = ageWeight;
+			this.cultureWeight = cultureWeight;
+			this.opportunityWeight = opportunityWeight;
+			this.workLifeBalanceWeight = workLifeBalanceWeight;
+			this.salaryWeight = salaryWeight;
+		}
 //		
 //		//general constructor
 		public Job()
@@ -168,7 +168,7 @@ public class Job {
 		
 		public void setCultureWeight(int cultureWeight)
 		{
-			
+			this.cultureWeight = cultureWeight;
 		}
 		
 		public void setOpportunityWeight(int opportunityWeight)
