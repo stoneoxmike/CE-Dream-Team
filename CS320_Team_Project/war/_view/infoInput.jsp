@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!--More div ids might be needed-->
+<!--Info input for each job listing -->
+<!--Need input for rating each aspect of a job, how important each is to them, and how much they like what each category from each company offers-->
 
 <html>
 	<head>
@@ -12,14 +14,22 @@
 		#background {
 				border-style: solid;
 				border-width: 10px;
-				border-color: black;
 				background-color: #305c54;
 				padding:50px;
-			}	
-			#label_2 {
-			text-align: left;
-			text-color: #3c857d;
-			font-size: 125%;
+		}	
+		
+		#h4 {
+				text-align: left;
+				text-color: #3c857d;
+				font-size: 125%;
+		}
+		#h5{
+				float: right;
+		}
+		
+		h1 {
+				text-align:center;
+				text-color: #3c857d;
 		}
 		
 	    #textCenter {
@@ -29,15 +39,42 @@
 				border-style: solid;
 				padding: 10px;
 				width: auto;
+		}
+		#label_2 {
+				text-align: left;
+				text-color: #3c857d;
+				font-size: 125%;
+		}
+		.button {
+			  float: none;
+			  border: solid;
+			  color:black;
+			  padding: 15px 32px;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			  font-size: 16px;
+			  margin: 4px 2px;
+			  cursor: pointer;
 			}
 		</style>
 	</head>
 	
 	<body>
-    
-	<div id = "background">
-		<h1 id = "h1">CE Dream Team - Job Comparison Website <br> Vin Pagano; Michael Geyer; Brody Hageneder</br></h1>
-	</div>
+	
+<!--<h2>JavaScript Alert</h2>  -->
+
+<!-- Script for browser pop-up-->
+<script>
+function submitFunction() {
+  alert("Your form is being submitted. You will now be taken back to the homepage.");
+}
+</script>
+
+	<!-- Back button and submit takes you back to homepage; no other interaction -->
+	<form action="${pageContext.servletContext.contextPath}/home" method="post">
+				<button class="button"; type= "Submit" name ="Submit" value="submit">Back</button>
+			</form>
 	
 	<div id = "textCenter">
 				<h2 id = "h1"> Information Input: </h2>
@@ -48,34 +85,122 @@
 					<br> 
 				</p>
 			</div>
-		<!--5 entry boxes for information input; none are functional currently-->
-		<form action="${pageContext.servletContext.contextPath}/home" method="post">
-					<table>
+			
+			<div>
+				<h2 id = "h1"> How much do you value... </h2>
+
+				</p>
+			</div>
+			
+		<!--5 drop-down boxes for information input-->
+		<title>DropDown List</title>
+		<h5>
+			<form>
+				<table name = "valueinputs">
 					<tr>
-						<td class="label_2">Rating1:</td>
-						<td><input type="text" name="r1" value="" /></td>
+						<td class="label_2">Salary:</td>
+						<td><input type="text" name="salary" value="" /></td>
 					</tr>
 					<tr>
-						<td class="label_2">Rating2:</td>
-						<td><input type="text" name="r2" value="" /></td>
+						<td class="label_2">Location:</td>
+						<td><input type="text" name="location" value="" /></td>
 					</tr>
 					<tr>
-						<td class="label_2">Rating3:</td>
-						<td><input type="text" name="r3" value="" /></td>
+						<td class="label_2">Housing Stipend Amount:</td>
+						<td><input type="text" name="housingStipend" value="" /></td>
 					</tr>
 					<tr>
-						<td class="label_2">Rating4:</td>
-						<td><input type="text" name="r4" value="" /></td>
+						<td class="label_2">Time to Commute: </td>
+						<td><input type="text" name="commuteTime" value="" /></td>
 					</tr>
 					<tr>
-						<td class="label_2">Rating5:</td>
-						<td><input type="text" name="r5" value="" /></td>
+						<td class="label_2">Remote work:</td>
+						<form>
+							<select name = "remote">
+								<option value = "false" selected>False</option>
+								<option value = "true">True</option>
+							</select>
+						</form>
 					</tr>
 				</table>
-				<br>
-				<!--Submit button -->
-				<button class="button button1"; type= "Submit" name ="value" value="submit">Submit</button>
-				</form>
-
+			</form>
+			</h5>
+		<h4>Size</h4>
+			<form>
+			<select name = "ddSize">
+				<option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
+			</select>
+		</form>
+		<h4>Age</h4>
+			<form>
+			<select name = "ddAge">
+            	<option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
+			</select>
+		</form>
+		<h4>Culture</h4>
+			<form>
+			<select name = "ddCulture">
+                <option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
+			</select>
+		</form>
+		<h4>Opportunity</h4>
+			<form>
+			<select name = "ddOpportunity">
+			    <option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
+			</select>
+		</form>
+		<h4>Work-Life Balance</h4>
+			<form>
+			<select name = "ddWLBalance">
+				<option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
+			</select>
+		</form>
+		<h4>Salary</h4>
+			<form>
+			<select name = "ddSalary">
+		        <option value = "0" selected>Not a factor</option>
+				<option value = "1">Not Important</option>
+				<option value = "2">Somewhat Important</option>
+				<option value = "3">Neutral</option>
+				<option value = "4">Mildly Important</option>
+				<option value = "5">Nice to have</option>
+				<option value = "6">Deciding Factor</option>
+			</select>
+		</form>
+<!--Submit button w/submission in progress popup -->
+		<br>
+		<form action="${pageContext.servletContext.contextPath}/home" method="post">
+				<button onclick="submitFunction()"; class="button"; type= "Submit" name ="Submit" value="submit" >Submit</button>
+			</form>
 	</body>
 </html>
