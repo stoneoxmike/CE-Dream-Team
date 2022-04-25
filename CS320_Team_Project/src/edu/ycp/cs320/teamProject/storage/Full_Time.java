@@ -1,6 +1,6 @@
 package edu.ycp.cs320.teamProject.storage;
 
-public class Full_Time extends Job {
+public class Full_Time extends Information {
 	// full time fields
 	private boolean insurance;
 	private boolean pension;
@@ -19,32 +19,26 @@ public class Full_Time extends Job {
 	}
 	
 	// setters
-	@Override
-	public void setInsurance(Boolean insurance) {
+	public void setInsurance(boolean insurance) {
 		this.insurance = insurance;
 	}
 	
-	@Override
-	public void setPension(Boolean pension) {
+	public void setPension(boolean pension) {
 		this.pension = pension;
 	}
 	
-	@Override
-	public void setPto(Boolean pto) {
+	public void setPto(boolean pto) {
 		this.pto = pto;
 	}
 	
-	@Override
 	public void setSigningBonus(int signingBonus) {
 		this.signingBonus = signingBonus;
 	}
 	
-	@Override
-	public void setAnnualBonus(int annualBonus) {
+	public void setAnnulBonus(int annualBonus) {
 		this.annualBonus = annualBonus;
 	}
 	
-	@Override
 	public void setJobLevel(int jobLevel) {
 		this.jobLevel = jobLevel;
 	}
@@ -72,29 +66,5 @@ public class Full_Time extends Job {
 	
 	public int getJobLevel() {
 		return jobLevel;
-	}
-
-	@Override
-	public void setLength(int length) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setResumeStrength(int resumeStrength) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setCredits(int credits) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setFullTimeOpportunity(Boolean fullTimeOpportunity) {
-		// TODO Auto-generated method stub
-		
 	}
 }

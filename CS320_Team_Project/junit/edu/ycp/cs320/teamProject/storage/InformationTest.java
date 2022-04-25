@@ -9,16 +9,16 @@ import org.junit.Test;
 
 
 public class InformationTest {
-	public Job general, test1, test2, test3, test4;
+	public Information general, test1, test2, test3, test4;
 	
     @Before
     public void setUp() throws Exception {
         //create a new instance of information
-         test1 = new Job(5, 1, 5, 6, 3, 1);
-    	 test2 = new Job(6, 6, 6, 6, 6, 6);
-    	 test3 = new Job(0, 0, 0, 0, 0, 0);
-    	 test4 = new Job(0, 0, 0, 0, 1, 0);
-    	 general = new Job();
+         test1 = new Information(5, 1, 5, 6, 3, 1);
+    	 test2 = new Information(6, 6, 6, 6, 6, 6);
+    	 test3 = new Information(0, 0, 0, 0, 0, 0);
+    	 test4 = new Information(0, 0, 0, 0, 1, 0);
+    	 general = new Information();
     	 general.setSalary(1010.10);
     }
 

@@ -1,7 +1,7 @@
 package edu.ycp.cs320.teamProject.storage;
 
 //Inheritance call 
-	class Co_op extends Job{
+	class Co_op extends Information{
 
 //Fields 
 		
@@ -16,77 +16,31 @@ package edu.ycp.cs320.teamProject.storage;
 		this.credits = credits; 
 		this.resumeStrength = resumeStrength; 
 	}
-
-
-@Override
-public void setInsurance(Boolean insurance) {
-	// TODO Auto-generated method stub
 	
-}
-
-
-@Override
-public void setPension(Boolean pension) {
-	// TODO Auto-generated method stub
+//setters
+	public void setLength(int length) {
+		this.length = length; 
+	}
 	
-}
-
-
-@Override
-public void setPto(Boolean pto) {
-	// TODO Auto-generated method stub
+	public void setresumeStrength(int resumeStrength) {
+		this.resumeStrength = resumeStrength; 
+	}
+	public void setCredits(int credits) {
+		this.credits = credits; 
+	}
 	
-}
-
-
-@Override
-public void setSigningBonus(int signingBonus) {
-	// TODO Auto-generated method stub
+//getters 
 	
-}
-
-
-@Override
-public void setAnnualBonus(int annualBonus) {
-	// TODO Auto-generated method stub
+	public int getLength() {
+		return length;
+	}
 	
-}
-
-
-@Override
-public void setJobLevel(int jobLevel) {
-	// TODO Auto-generated method stub
+	public int getresumeStrength() {
+		return resumeStrength;
+	}
 	
-}
-
-
-@Override
-public void setLength(int length) {
-	// TODO Auto-generated method stub
-	this.length = length;
-}
-
-
-@Override
-public void setResumeStrength(int resumeStrength) {
-	// TODO Auto-generated method stub
-	this.resumeStrength = resumeStrength;
-}
-
-
-@Override
-public void setCredits(int credits) {
-	// TODO Auto-generated method stub
-	this.credits = credits;
-}
-
-
-@Override
-public void setFullTimeOpportunity(Boolean fullTimeOpportunity) {
-	// TODO Auto-generated method stub
-	
-}
-
-
-	
+	public int getCredits() {
+		return credits;
+	}
+		
 }
