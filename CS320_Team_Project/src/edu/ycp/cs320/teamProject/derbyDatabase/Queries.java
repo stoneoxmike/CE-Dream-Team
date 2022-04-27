@@ -32,24 +32,22 @@ public class Queries implements IDatabase {
 	private static final int MAX_ATTEMPTS = 10;
 	
 	@Override
-	public List<Pair<User, Job>> findUserByID(String id) {
-		return executeTransaction(new Transaction<List<Pair<User,Job>>>() {
+	public User findUserByID(String id) {
+		return executeTransaction(new Transaction<User>() {
 			@Override
-			public List<Pair<User, Job>> execute(Connection conn) throws SQLException {
+			public User execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
 				
 				try {
 					stmt = conn.prepareStatement(
-							"select authors.*, books.* " +
-							"  from  authors, books, bookAuthors " +
-							"  where books.title = ? " +
-							"    and authors.author_id = bookAuthors.author_id " +
-							"    and books.book_id     = bookAuthors.book_id"
+							"select users.username " +
+							"  from  users " +
+							"  where users. user_id = ? "
 					);
 					stmt.setString(1, id);
 					
-					List<Pair<User, Job>> result = new ArrayList<Pair<User,Job>>();
+					User result = new User();
 					
 					resultSet = stmt.executeQuery();
 					
@@ -59,12 +57,10 @@ public class Queries implements IDatabase {
 					while (resultSet.next()) {
 						found = true;
 						
-						Job job = new Job();
-						loadJob(job, resultSet, 1);
 						User user = new User();
-						loadUser(user, resultSet, 4);
+						loadUser(user, resultSet, 1);
 						
-						result.add(new Pair<User, Job>(user, job));
+						result = user;
 					}
 					
 					// check if the title was found
