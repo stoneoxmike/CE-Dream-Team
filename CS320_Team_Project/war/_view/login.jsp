@@ -78,7 +78,7 @@ function pwShowFunction() {
 				</form>
 				<form action="${pageContext.servletContext.contextPath}/signUp" method="get">
 				<div id = "signUpButton">
-					<input type ="button" name ="signUp">
+					<input type ="button" name ="signUp" value = "Sign-Up Here" id ="label_3">
 				</div>
 				</form>
 				<c:if test="${! empty errorMessage}">
