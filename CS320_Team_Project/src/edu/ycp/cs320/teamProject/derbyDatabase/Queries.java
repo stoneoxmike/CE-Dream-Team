@@ -88,8 +88,10 @@ public class Queries implements IDatabase {
 				try {
 					stmt = conn.prepareStatement(
 							"select jobs.* " +
-							"  from  jobs " +
-							"  where userjob.user_id = ? "
+							"  from jobs, users, userjob  " + 
+							"  where jobs.job_id = userjob.job_id and " + 
+							"  users.user_id = userjob.user_id and " + 
+							"  users.user_id = ?"
 					);
 					
 					stmt.setString(1, id);
