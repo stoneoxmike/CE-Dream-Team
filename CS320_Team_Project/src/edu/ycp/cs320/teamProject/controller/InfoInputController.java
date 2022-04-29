@@ -16,5 +16,7 @@ public class InfoInputController {
 	public void setModel(InfoInput model) {
 		this.model = model;
 	}
+	
+	
 
 }

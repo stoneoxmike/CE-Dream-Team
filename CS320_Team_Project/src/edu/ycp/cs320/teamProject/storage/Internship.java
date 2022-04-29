@@ -16,49 +16,22 @@ public class Internship extends Job {
 			this.fullTimeOpportunity = fullTimeOpportunity;
 		}
 
+		//getters
 
-		@Override
-		public void setInsurance(Boolean insurance) {
-			// TODO Auto-generated method stub
-			
+		public int getLength() {
+			return length; 
 		}
-
-
-		@Override
-		public void setPension(Boolean pension) {
-			// TODO Auto-generated method stub
-			
+		
+		public int getResumeStrength() {
+			return resumeStrength; 
 		}
-
-
-		@Override
-		public void setPto(Boolean pto) {
-			// TODO Auto-generated method stub
-			
+		
+		public boolean getfullTimeOpportunity() {
+			return fullTimeOpportunity;
 		}
-
-
-		@Override
-		public void setSigningBonus(int signingBonus) {
-			// TODO Auto-generated method stub
-			
-		}
-
-
-		@Override
-		public void setAnnualBonus(int annualBonus) {
-			// TODO Auto-generated method stub
-			
-		}
-
-
-		@Override
-		public void setJobLevel(int jobLevel) {
-			// TODO Auto-generated method stub
-			
-		}
-
-
+		
+		//setters 
+		
 		@Override
 		public void setLength(int length) {
 			// TODO Auto-generated method stub
@@ -71,13 +44,6 @@ public class Internship extends Job {
 			// TODO Auto-generated method stub
 			this.resumeStrength = resumeStrength;
 		}
-
-
-		@Override
-		public void setCredits(double credits) {
-			
-		}
-
 
 		@Override
 		public void setFullTimeOpportunity(Boolean fullTimeOpportunity) {
