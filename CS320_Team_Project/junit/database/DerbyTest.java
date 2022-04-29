@@ -1,5 +1,7 @@
 package database;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -7,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import edu.ycp.cs320.teamProject.derbyDatabase.DBUtil;
@@ -19,10 +22,12 @@ public class DerbyTest {
 	private Derby db;
 	Connection conn;
 	
+	@Before
 	public void setup()
 	{
 		connected = true;
 		Derby db = new Derby();
+		System.out.println(conn);
 		conn = null;
 	}
 	
@@ -32,7 +37,9 @@ public class DerbyTest {
 		conn = null;
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-			conn = DriverManager.getConnection("jdbc:derby:inputsdb;create=true");
+			conn = DriverManager.getConnection("jdbc:derby:testdb;create=true");
+			System.out.println(conn);
+		//	connected = true;
 		} catch (SQLException e)
 		{
 			connected = false;
@@ -45,24 +52,26 @@ public class DerbyTest {
 		}
 		assertTrue(connected);
 	}
-	/*
-	public static void main(String[] args) throws ClassNotFoundException, IOException {
-		Connection conn = null;
+	
+	@Test
+	public void testCreateTables()
+	{
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-			//creates database connection (if database doesn't exist create database)
-			conn = DriverManager.getConnection("jdbc:derby:inputsdb;create=true");
-			conn.setAutoCommit(true);
-	
-			Initialize(conn);
-		} catch (SQLException e) {
-			System.out.println("Error: " + e.getMessage());
-		} finally {
-			DBUtil.closeQuietly(conn);
+			conn = DriverManager.getConnection("jdbc:derby:testdb;create=true");
+		} catch (SQLException e)
+		{
+			System.out.println(e.getMessage());
+		} catch (ClassNotFoundException e)
+		{
+			System.out.println("Embedded Driver Error");
+			System.out.println(e.getMessage());
 		}
-		
-}
-
+		db.createTables(conn);
+		System.out.println(conn);
+	}
+	
+	/*
 	private static void Initialize(Connection conn) throws IOException {
 					try {
 						//checks to see if the table of users exists

@@ -165,6 +165,7 @@ public class Queries implements IDatabase {
 		
 		// retrieves Job information from query result set
 		private void loadJob(Job job, ResultSet resultSet, int index) throws SQLException {
+			job.setJobID(resultSet.getInt(index++));
 			job.setSalary(resultSet.getDouble(index++));
 			job.setLocation(resultSet.getString(index++));
 			job.setHousingStipend(resultSet.getInt(index++));
@@ -197,7 +198,7 @@ public class Queries implements IDatabase {
 		
 		// retrieves User information from query result set
 		private void loadUser(User user, ResultSet resultSet, int index) throws SQLException {
-//			book.setAuthorId(resultSet.getInt(index++));  // no longer used
+			user.setUserID(resultSet.getInt(index++));
 			user.setUsername(resultSet.getString(index++));
 			user.setPassword(resultSet.getString(index++));
 		}

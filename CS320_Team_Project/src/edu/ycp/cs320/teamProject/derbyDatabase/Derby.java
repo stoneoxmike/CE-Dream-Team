@@ -79,7 +79,7 @@ public class Derby {
 						//creates User tables
 						System.out.println("Creating tables...");
 						Derby tables = new Derby();
-						tables.createTables();
+						tables.createTables(conn);
 						
 						System.out.println("Loading initial data...");
 						DatabaseProvider db = new DatabaseProvider();
@@ -176,7 +176,7 @@ public class Derby {
 		userJob.setJobID(resultSet.getInt(index++));
 	}
 	//  creates the Authors and Books tables
-	public void createTables() {
+	public void createTables(Connection conn) {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
@@ -245,7 +245,35 @@ public class Derby {
 				} finally {
 					DBUtil.closeQuietly(stmt1);
 					DBUtil.closeQuietly(stmt2);
+					DBUtil.closeQuietly(stmt3);
 				}
+			}
+		});
+	}
+	
+	public void dropTables(String tableName)
+	{
+		executeTransaction(new Transaction<Boolean>() {
+			@Override
+			public Boolean execute(Connection conn) throws SQLException {
+				PreparedStatement stmt1 = null;				
+			
+				try {
+					stmt1 = conn.prepareStatement(
+						"drop table "
+						+ tableName
+					);	
+					stmt1.executeUpdate();
+					
+					System.out.println(tableName +" table removed");
+					return true;
+				} catch (SQLException e)
+				{
+					System.out.println("Error Deleting Table: " + tableName);
+					System.out.println(e.getMessage());
+					return false;
+				}
+			
 			}
 		});
 	}
