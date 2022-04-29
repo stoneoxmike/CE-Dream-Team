@@ -45,14 +45,16 @@
 <!-- Script for password hiding-->
 <script>
 function pwShowFunction() {
-	  var x = document.getElementById("pw");
-	  if (x.type === "password") {
-	    x.type = "text";
-	  } else {
-	    x.type = "password";
+	  var pwF = document.getElementById("pw");
+	  if (pwF.type === "password") {
+	    pwF.type = "text";
+	  } 
+	  else {
+	    pwF.type = "password";
 	  }
 }
 </script>
+
 <body>
 		<div id = "LoginBox">
 			<h1 class = "h1"> Welcome! </h1>
@@ -70,9 +72,7 @@ function pwShowFunction() {
 					</tr>
 				</table>
 					<input type="checkbox" onclick="pwShowFunction()">Show Password
-				
-				
-					<div id = "Submit">
+				<div id = "Submit">
 							<input type="Submit" name="" value="Contnue" id = "label_3">
 					</div>
 				</form>
