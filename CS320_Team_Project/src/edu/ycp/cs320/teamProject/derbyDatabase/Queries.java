@@ -43,7 +43,7 @@ public class Queries implements IDatabase {
 					stmt = conn.prepareStatement(
 							"select users.username " +
 							"  from  users " +
-							"  where users. user_id = ? "
+							"  where users.user_id = ? "
 					);
 					stmt.setString(1, id);
 					
@@ -79,14 +79,96 @@ public class Queries implements IDatabase {
 
 	@Override
 	public List<Pair<User, Job>> findAllJobsByUserID(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return executeTransaction(new Transaction<List<Pair<User, Job>>>() {
+			@Override
+			public List<Pair<User, Job>> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement(
+							"select jobs.* " +
+							"  from  jobs " +
+							"  where userjob.user_id = ? "
+					);
+					
+					stmt.setString(1, id);
+					
+					User user = new User();
+					user = findUserByID(id);
+					ArrayList<Pair<User, Job>> result = new ArrayList<Pair<User, Job>>();
+					
+					
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						Job job = new Job();
+						loadJob(job, resultSet, 1);
+						Pair<User, Job> pair = new Pair<User, Job>(user, job);
+						ArrayList<Pair<User, Job>> list = new ArrayList<Pair<User, Job>>();
+						list.add(pair);
+						result = list;
+					}
+					
+					if (!found) {
+						System.out.println("<" + id + "> was not found in the books table");
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
 	}
 
 	@Override
 	public Integer insertUser(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		return executeTransaction(new Transaction<Integer>() {
+			@Override
+			public Integer execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement(
+							"insert into users (username, password) " +
+							"  values (?, ?) "
+					);
+					stmt.setString(1, username);
+					stmt.setString(2,  password);
+					
+					Integer result = 0;
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Integer found = 0;
+					
+					while (resultSet.next()) {
+						found = 1;
+						
+						result = found;
+					}
+					
+					// check if the title was found
+					if (found == 0) {
+						System.out.println("<" + username + "> was not correctly inserted");
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
 	}
 
 	@Override
@@ -95,8 +177,62 @@ public class Queries implements IDatabase {
 			int workLifeBalance, boolean insurance, boolean pension, boolean pto, int signingBonus, int annualBonus,
 			int jobLevel, int length, int resumeStrength, int credits, boolean fullTimeOpportunity, int sizeWeight,
 			int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight) {
-		// TODO Auto-generated method stub
-		return null;
+		return executeTransaction(new Transaction<Integer>() {
+			@Override
+			public Integer execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement(
+							"insert into jobs (title, salary, location,  commuteTime, remote, size, age, culture, opportunity, workLifeBalance, sizeWeight, ageWeight, cultureWeight, opportunityWeight, workLifeBalanceWeight, salaryWeight) " +
+							"  values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
+					);
+					stmt.setString(1, title);
+					stmt.setDouble(2,  salary);
+					stmt.setString(3, location);
+					stmt.setInt(4, housingStipend);
+					stmt.setDouble(5, commuteTime);
+					stmt.setBoolean(6, remote);
+					stmt.setInt(7, size);
+					stmt.setInt(8, age);
+					stmt.setInt(9, culture);
+					stmt.setInt(10, opportunity);
+					stmt.setInt(11, workLifeBalance);
+					stmt.setInt(12, sizeWeight);
+					stmt.setInt(13, ageWeight);
+					stmt.setInt(14, cultureWeight);
+					stmt.setInt(15, opportunityWeight);
+					stmt.setInt(16, workLifeBalanceWeight);
+					stmt.setInt(17, salaryWeight);
+					
+					
+					
+					Integer result = 0;
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Integer found = 0;
+					
+					while (resultSet.next()) {
+						found = 1;
+						
+						result = found;
+					}
+					
+					// check if the title was found
+					if (found == 0) {
+						System.out.println("job was not correctly inserted");
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
 	}
 
 	@Override
@@ -175,6 +311,12 @@ public class Queries implements IDatabase {
 			job.setCulture(resultSet.getInt(index++));
 			job.setOpportunity(resultSet.getInt(index++));
 			job.setWorkLifeBalance(resultSet.getInt(index++));
+			job.setSizeWeight(resultSet.getInt(index++));
+			job.setAgeWeight(resultSet.getInt(index++));
+			job.setCultureWeight(resultSet.getInt(index++));
+			job.setOpportunityWeight(resultSet.getInt(index++));
+			job.setWorkLifeBalanceWeight(resultSet.getInt(index++));
+			job.setSalaryWeight(resultSet.getInt(index++));
 			// TODO change following values depending on type of job
 			job.setInsurance(resultSet.getBoolean(index++));
 			job.setPension(resultSet.getBoolean(index++));
@@ -187,12 +329,6 @@ public class Queries implements IDatabase {
 			job.setCredits(resultSet.getInt(index++));
 			job.setFullTimeOpportunity(resultSet.getBoolean(index++));
 			//
-			job.setSizeWeight(resultSet.getInt(index++));
-			job.setAgeWeight(resultSet.getInt(index++));
-			job.setCultureWeight(resultSet.getInt(index++));
-			job.setOpportunityWeight(resultSet.getInt(index++));
-			job.setWorkLifeBalanceWeight(resultSet.getInt(index++));
-			job.setSalaryWeight(resultSet.getInt(index++));
 		}
 		
 		// retrieves User information from query result set
