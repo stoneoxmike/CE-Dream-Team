@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		Login model = new Login();
+		User model = new User();
 		
 		System.out.println("Login Servlet: doPost");
 		
@@ -82,8 +82,7 @@ public class LoginServlet extends HttpServlet {
 				//use controller to store and retrieve from database
 //				LoginController controller = new LoginController();
 //				if (controller.login(model)) {
-				User user = new User(model.getUsername(), model.getPassword());
-				if (user.login(model.getPassword())) {
+				if (model.login(model.getEncrypted())) {
 					// if credentials are correct, doGet homePage
 					System.out.println("login successful");
 					HomePageServlet servlet = new HomePageServlet();

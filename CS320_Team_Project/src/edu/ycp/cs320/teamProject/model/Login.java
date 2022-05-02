@@ -1,12 +1,13 @@
 package edu.ycp.cs320.teamProject.model;
 
 public class Login {
-	private String username, password;
+	private String username, password, encrypted;
 	
 	public Login()
 	{
 		username = null;
 		password = null;
+		encrypted = null;
 	}
 	
 	public void setUsername(String inputUsername)
@@ -27,5 +28,9 @@ public class Login {
 	public String getPassword()
 	{
 		return password;
+	}
+	
+	public String getEncrypted() {
+		return encrypted;
 	}
 }
