@@ -37,8 +37,8 @@ public Login login1, login2, login3;
 	@Test
 	public void testgetPassword() {
 		
-		assertTrue(login1.getPassword().contentEquals("cheeseman"));
-		assertTrue(login2.getPassword().contentEquals("password12345"));
+		assertTrue(login1.getPassword().contentEquals("password12345"));
+		assertTrue(login2.getPassword().contentEquals("broady"));
 		assertTrue(login3.getPassword().contentEquals("security"));
 		
 	}
