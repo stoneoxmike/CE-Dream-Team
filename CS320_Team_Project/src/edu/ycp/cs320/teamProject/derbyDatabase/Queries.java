@@ -58,14 +58,14 @@ public class Queries implements IDatabase {
 						found = true;
 						
 						User user = new User();
-						loadUser(user, resultSet, 1);
+						loadUser(user, resultSet, 0);
 						
 						result = user;
 					}
 					
 					// check if the title was found
 					if (!found) {
-						System.out.println("<" + id + "> was not found in the books table");
+						System.out.println("<" + id + "> was not found in the users table");
 					}
 					
 					return result;
@@ -110,7 +110,7 @@ public class Queries implements IDatabase {
 					while (resultSet.next()) {
 						found = true;
 						Job job = new Job();
-						loadJob(job, resultSet, 1);
+						loadJob(job, resultSet, 0);
 						Pair<User, Job> pair = new Pair<User, Job>(user, job);
 						ArrayList<Pair<User, Job>> list = new ArrayList<Pair<User, Job>>();
 						list.add(pair);
@@ -118,7 +118,7 @@ public class Queries implements IDatabase {
 					}
 					
 					if (!found) {
-						System.out.println("<" + id + "> was not found in the books table");
+						System.out.println("<" + id + "> was not found in the users table");
 					}
 					
 					return result;
@@ -238,9 +238,45 @@ public class Queries implements IDatabase {
 	}
 
 	@Override
-	public List<Job> removeJobByTitle(String title) {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer removeJobByTitle(String title) {
+		return executeTransaction(new Transaction<Integer>() {
+			@Override
+			public Integer execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement(
+							"delete from jobs where " +
+							"  jobs.title = ? "
+					);
+					stmt.setString(1, title);
+					
+					Integer result = 0;
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Integer found = 0;
+					
+					while (resultSet.next()) {
+						found = 1;
+						
+						result = found;
+					}
+					
+					// check if the title was found
+					if (found == 0) {
+						System.out.println("<" + title + "> was not correctly deleted");
+					}
+					
+					return result;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
 	}
 	
 	// wrapper SQL transaction function that calls actual transaction function (which has retries)

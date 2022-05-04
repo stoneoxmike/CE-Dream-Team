@@ -52,7 +52,7 @@ public class User {
 	
 	// compare input md5 to set md5
 	public Boolean login(String input) {
-		if (getMd5(input) == encrypted) {
+		if (getMd5(input).contentEquals(encrypted)) {
 			return true;
 		}
 		return false;
@@ -68,6 +68,7 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+		this.encrypted = getMd5(password);
 	}
 	public String getPassword() {
 		return password;
@@ -78,5 +79,8 @@ public class User {
 	}
 	public String getUsername() {
 		return username;
+	}
+	public String getEncrypted() {
+		return encrypted;
 	}
 }

@@ -11,6 +11,7 @@ public class UserTest {
 	public User user1, user2; 
 	
 	private InfoInput model;
+	private User user;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -52,6 +53,24 @@ public class UserTest {
 		
 		assertTrue(user1.getPassword().contentEquals("password4Jobcomp"));
 		assertTrue(user2.getPassword().contentEquals("1235%^&*"));
+	}
+		
+	@Test
+	public void testMD5() {
+		user1.setPassword("password4Jobcomp");
+		user2.setPassword("1235%^&*");
+		
+		assertEquals(user1.getEncrypted(), User.getMd5("password4Jobcomp"));
+		assertNotEquals(user2.getEncrypted(), User.getMd5("12345"));
+	}
+	
+	@Test
+	public void testLogin() {
+		user1.setPassword("password4Jobcomp");
+		user2.setPassword("1235%^&*");
+		
+		assertTrue(user1.login("password4Jobcomp"));
+		assertFalse(user2.login("12345%^&"));
 	}
 	
 }
