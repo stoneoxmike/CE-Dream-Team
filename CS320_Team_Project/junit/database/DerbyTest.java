@@ -1,6 +1,8 @@
 package database;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -15,11 +17,14 @@ import org.junit.Test;
 import edu.ycp.cs320.teamProject.derbyDatabase.DBUtil;
 import edu.ycp.cs320.teamProject.derbyDatabase.DatabaseProvider;
 import edu.ycp.cs320.teamProject.derbyDatabase.Derby;
+import edu.ycp.cs320.teamProject.derbyDatabase.IDatabase;
 import edu.ycp.cs320.teamProject.derbyDatabase.PersistenceException;
 
 public class DerbyTest {
 	private boolean connected;
 	private Derby db;
+	private DatabaseProvider dbp;
+	private IDatabase idb;
 	Connection conn;
 	
 	@Before
@@ -27,7 +32,7 @@ public class DerbyTest {
 	{
 		connected = true;
 		Derby db = new Derby();
-		System.out.println(conn);
+	//	System.out.println(conn);
 		conn = null;
 	}
 	
@@ -56,20 +61,44 @@ public class DerbyTest {
 	@Test
 	public void testCreateTables()
 	{
+		Boolean test = false;
 		try {
+			Derby db = new Derby();
+			System.out.println(conn);
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-			conn = DriverManager.getConnection("jdbc:derby:testdb;create=true");
-		} catch (SQLException e)
-		{
-			System.out.println(e.getMessage());
+			db.createTables(conn, true);
+			test = true;
+		    db.dropTables("userjob", true);
+			db.dropTables("users", true);
+			db.dropTables("jobs", true);
 		} catch (ClassNotFoundException e)
 		{
+			test = false;
 			System.out.println("Embedded Driver Error");
 			System.out.println(e.getMessage());
+		} catch(PersistenceException e)
+		{
+			
 		}
-		db.createTables(conn);
-		System.out.println(conn);
+		assertTrue(test);
 	}
+	
+	@Test
+	public void testSetInstance()
+	{
+		dbp = new DatabaseProvider();
+		dbp.setInstance(idb);
+		System.out.println(idb);
+		assertEquals(idb, dbp.getInstance());
+	}
+	
+	@Test
+	public void testGetInstance()
+	{
+		assertEquals(idb, dbp.getInstance());
+		
+	}
+}
 	
 	/*
 	private static void Initialize(Connection conn) throws IOException {
@@ -90,68 +119,7 @@ public class DerbyTest {
 					}
 			}
 	
-	private interface Transaction<ResultType> {
-		public ResultType execute(Connection conn) throws SQLException;
-	}
-
-	private static final int MAX_ATTEMPTS = 10;	
-
-	// wrapper SQL transaction function that calls actual transaction function (which has retries)
-	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
-		try {
-			return doExecuteTransaction(txn);
-		} catch (SQLException e) {
-			throw new PersistenceException("Transaction failed", e);
-		}
-	}
 	
-	// SQL transaction function which retries the transaction MAX_ATTEMPTS times before failing
-	public<ResultType> ResultType doExecuteTransaction(Transaction<ResultType> txn) throws SQLException {
-		Connection conn = connect();
-		
-		try {
-			int numAttempts = 0;
-			boolean success = false;
-			ResultType result = null;
-			
-			while (!success && numAttempts < MAX_ATTEMPTS) {
-				try {
-					result = txn.execute(conn);
-					conn.commit();
-					success = true;
-				} catch (SQLException e) {
-					if (e.getSQLState() != null && e.getSQLState().equals("41000")) {
-						// Deadlock: retry (unless max retry count has been reached)
-						numAttempts++;
-					} else {
-						// Some other kind of SQLException
-						throw e;
-					}
-				}
-			}
-			
-			if (!success) {
-				throw new SQLException("Transaction failed (too many retries)");
-			}
-			
-			// Success!
-			return result;
-		} finally {
-			DBUtil.closeQuietly(conn);
-		}
-	}
-
-	// TODO: Here is where you name and specify the location of your Derby SQL database
-	// TODO: Change it here and in SQLDemo.java under CS320_LibraryExample_Lab06->edu.ycp.cs320.sqldemo
-	// TODO: DO NOT PUT THE DB IN THE SAME FOLDER AS YOUR PROJECT - that will cause conflicts later w/Git
-	private Connection connect() throws SQLException {
-		Connection conn = DriverManager.getConnection("jdbc:derby:inputsdb;create=true");		
-		
-		// Set autocommit() to false to allow the execution of
-		// multiple queries/statements as part of the same transaction.
-		conn.setAutoCommit(false);
-		
-		return conn;
-	}*/
 	
 }
+*/

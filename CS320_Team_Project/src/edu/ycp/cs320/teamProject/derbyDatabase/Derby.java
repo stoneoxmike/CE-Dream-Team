@@ -79,7 +79,7 @@ public class Derby {
 						//creates User tables
 						System.out.println("Creating tables...");
 						Derby tables = new Derby();
-						tables.createTables(conn);
+						tables.createTables(conn, false);
 						
 						System.out.println("Loading initial data...");
 						DatabaseProvider db = new DatabaseProvider();
@@ -98,17 +98,17 @@ public class Derby {
 	private static final int MAX_ATTEMPTS = 10;	
 
 	// wrapper SQL transaction function that calls actual transaction function (which has retries)
-	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
+	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn, Boolean input) {
 		try {
-			return doExecuteTransaction(txn);
+			return doExecuteTransaction(txn, input);
 		} catch (SQLException e) {
 			throw new PersistenceException("Transaction failed", e);
 		}
 	}
 	
 	// SQL transaction function which retries the transaction MAX_ATTEMPTS times before failing
-	public<ResultType> ResultType doExecuteTransaction(Transaction<ResultType> txn) throws SQLException {
-		Connection conn = connect();
+	public<ResultType> ResultType doExecuteTransaction(Transaction<ResultType> txn, Boolean input) throws SQLException {
+		Connection conn = connect(input);
 		
 		try {
 			int numAttempts = 0;
@@ -145,47 +145,37 @@ public class Derby {
 	// TODO: Here is where you name and specify the location of your Derby SQL database
 	// TODO: Change it here and in SQLDemo.java under CS320_LibraryExample_Lab06->edu.ycp.cs320.sqldemo
 	// TODO: DO NOT PUT THE DB IN THE SAME FOLDER AS YOUR PROJECT - that will cause conflicts later w/Git
-	private Connection connect() throws SQLException {
-		Connection conn = DriverManager.getConnection("jdbc:derby:inputsdb;create=true");		
+	private Connection connect(Boolean input) throws SQLException {
+		Connection conn = null;
+		if (input == false)
+		{
+		conn = DriverManager.getConnection("jdbc:derby:inputsdb;create=true");		
 		
 		// Set autocommit() to false to allow the execution of
 		// multiple queries/statements as part of the same transaction.
 		conn.setAutoCommit(false);
-		
+		}
+		else if (input == true)
+		{
+		conn = DriverManager.getConnection("jdbc:derby:testdb;create=true");
+		conn.setAutoCommit(false);
+		}
 		return conn;
 	}
 	
-	// retrieves User information from query result set
-	private void loadUser(User user, ResultSet resultSet, int index) throws SQLException {
-		user.setUserID(resultSet.getInt(index++));
-		user.setUsername(resultSet.getString(index++));
-		user.setPassword(resultSet.getString(index++));
-	}
-	
-	// retrieves Job information from query result set
-	private void loadJob(Job job, ResultSet resultSet, int index) throws SQLException {
-		job.setJobID(resultSet.getInt(index++));
-		job.setJobName(resultSet.getString(index++));
-		job.setSalary(resultSet.getDouble(index++));
-		
-	}
-	
-	// retrieves WrittenBy information from query result set
-	private void loadUserJob(UserJob userJob, ResultSet resultSet, int index) throws SQLException {
-		userJob.setUserID(resultSet.getInt(index++));
-		userJob.setJobID(resultSet.getInt(index++));
-	}
 	//  creates the Authors and Books tables
-	public void createTables(Connection conn) {
+	public void createTables(Connection inputConn, Boolean test) {
+		Connection tempConn = inputConn;
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
-			public Boolean execute(Connection conn) throws SQLException {
+			public Boolean execute(Connection tempConn) throws SQLException {
+				System.out.println(tempConn);
 				PreparedStatement stmt1 = null;
 				PreparedStatement stmt2 = null;
 				PreparedStatement stmt3 = null;				
 			
 				try {
-					stmt1 = conn.prepareStatement(
+					stmt1 = tempConn.prepareStatement(
 						"create table users (" +
 						"	user_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
@@ -197,33 +187,33 @@ public class Derby {
 					
 					System.out.println("Users table created");
 					
-					stmt2 = conn.prepareStatement(
+					stmt2 = tempConn.prepareStatement(
 							"create table jobs(" +
 							"	job_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +
 //							"	author_id integer constraint author_id references authors, " +  	// this is now in the BookAuthors table
 							"	name varchar(128)," +
 							"	salary float," +
-							"   location varchar(128)" +
-							"   housingStipend integer" +
-							"   commuteTime float" +
+							"   location varchar(128)," +
+							"   housingStipend integer," +
+							"   commuteTime float," +
 //----------------------------------------------------------------------------------------------
 // The recommended way of storing booleans in Oracle SQL is to use a NUMBER(1) field. 
 //This can store 1 as true and 0 as false.
 //This can be handled within the actual request from the JSP to convert the boolean answer
 // of true or false to the binary values of 1 or 0.
-							"   remote NUMBER(1)" +
+							"   remote int," +
 //----------------------------------------------------------------------------------------------
-							"   size integer" + 
-							"   age integer" +
-							"   culture integer" +
-							"   opportunity integer" +
-							"   workLifeBalance integer" +
-							"   sizeWeight integer" +
-							"   ageWeight integer" +
-							"   cultureWeight integer" +
-							"   opportunityWeight integer" +
-							"   workLifeBalanceWeight integer" +
+							"   size integer," + 
+							"   age integer," +
+							"   culture integer," +
+							"   opportunity integer," +
+							"   workLifeBalance integer," +
+							"   sizeWeight integer," +
+							"   ageWeight integer," +
+							"   cultureWeight integer," +
+							"   opportunityWeight integer," +
+							"   workLifeBalanceWeight integer," +
 							"   salaryWeight integer" +
 							")"
 					);
@@ -231,7 +221,7 @@ public class Derby {
 					
 					System.out.println("Jobs table created");					
 					
-					stmt3 = conn.prepareStatement(
+					stmt3 = tempConn.prepareStatement(
 							"create table userjob (" +
 							"	user_id integer constraint user_id references users, " +
 							"	job_id integer constraint job_id references jobs " +
@@ -248,10 +238,10 @@ public class Derby {
 					DBUtil.closeQuietly(stmt3);
 				}
 			}
-		});
+		}, test);
 	}
 	
-	public void dropTables(String tableName)
+	public void dropTables(String tableName, Boolean test)
 	{
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
@@ -275,6 +265,6 @@ public class Derby {
 				}
 			
 			}
-		});
+		}, test);
 	}
 }

@@ -59,3 +59,8 @@ CS320_Team_Project/inputsdb/log/log.ctrl
 CS320_Team_Project/inputsdb/log/log.ctrl
 CS320_Team_Project/inputsdb/log/log1.dat
 CS320_Team_Project/inputsdb/log/logmirror.ctrl
+*.dat
+CS320_Team_Project/inputsdb/seg0/c10.dat
+CS320_Team_Project/inputsdb/seg0/c101.dat
+CS320_Team_Project/inputsdb/seg0/c101.dat
+*.dat
