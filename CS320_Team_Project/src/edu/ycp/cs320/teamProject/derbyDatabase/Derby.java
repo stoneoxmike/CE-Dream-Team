@@ -61,7 +61,7 @@ public class Derby {
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 			//creates database connection (if database doesn't exist create database)
-			conn = DriverManager.getConnection("jdbc:derby:inputsdb;create=true");
+			conn = DriverManager.getConnection("jdbc:derby:C:/inputs.db;create=true");
 			conn.setAutoCommit(true);
 	
 			Initialize(conn);
@@ -149,7 +149,8 @@ public class Derby {
 		Connection conn = null;
 		if (input == false)
 		{
-		conn = DriverManager.getConnection("jdbc:derby:inputsdb;create=true");		
+			//C:/CS320-2022-LibraryExample-DB/library.db
+		conn = DriverManager.getConnection("jdbc:derby:C:/inputs.db;create=true");		
 		
 		// Set autocommit() to false to allow the execution of
 		// multiple queries/statements as part of the same transaction.
@@ -157,7 +158,7 @@ public class Derby {
 		}
 		else if (input == true)
 		{
-		conn = DriverManager.getConnection("jdbc:derby:testdb;create=true");
+		conn = DriverManager.getConnection("jdbc:derby:C:/test.db;create=true");
 		conn.setAutoCommit(false);
 		}
 		return conn;

@@ -42,7 +42,7 @@ public class DerbyTest {
 		conn = null;
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-			conn = DriverManager.getConnection("jdbc:derby:testdb;create=true");
+			conn = DriverManager.getConnection("jdbc:derby:C:/test.db;create=true");
 			System.out.println(conn);
 		//	connected = true;
 		} catch (SQLException e)
