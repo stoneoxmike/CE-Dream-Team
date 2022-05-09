@@ -33,7 +33,7 @@ public class Main {
 //		test.getRating();
 		//---------------------------------
 		
-		//test derby database
+		//start derby database
 		//---------------------------------
 		Derby.main(args);
 		//---------------------------------

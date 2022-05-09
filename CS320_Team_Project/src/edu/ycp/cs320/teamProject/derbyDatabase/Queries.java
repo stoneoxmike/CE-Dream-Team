@@ -17,7 +17,6 @@ import edu.ycp.cs320.teamProject.storage.UserJob;
 
 public class Queries implements IDatabase {
 	static {
-		IDatabase db = DatabaseProvider.getInstance();
 		try {
 			Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
 		} catch (Exception e) {
@@ -420,6 +419,7 @@ public class Queries implements IDatabase {
 					 //create resultSet to store returned queries
 					 ResultSet resultSet           = null;
 					 
+					 System.out.println("Loading Initial Data: ");
 					 try {	 
 					//query to check to see if the admin user already exists within the database
 					 checkAdmin = conn.prepareStatement("select users.user_id, users.username, users.password "
