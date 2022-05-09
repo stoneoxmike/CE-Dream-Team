@@ -199,5 +199,3 @@ public InfoInput ii1, ii2, ii3;
 	
 	
 }
-	
-

@@ -127,7 +127,7 @@ function submitFunction() {
 			</h5>
 		<h4>Size</h4>
 			<form>
-			<select name = "ddSize">
+			<select id = "ddSize">
 				<option value = "0" selected>Not a factor</option>
 				<option value = "1">Not Important</option>
 				<option value = "2">Somewhat Important</option>
@@ -139,7 +139,7 @@ function submitFunction() {
 		</form>
 		<h4>Age</h4>
 			<form>
-			<select name = "ddAge">
+			<select id = "ddAge">
             	<option value = "0" selected>Not a factor</option>
 				<option value = "1">Not Important</option>
 				<option value = "2">Somewhat Important</option>
@@ -151,7 +151,7 @@ function submitFunction() {
 		</form>
 		<h4>Culture</h4>
 			<form>
-			<select name = "ddCulture">
+			<select id = "ddCulture">
                 <option value = "0" selected>Not a factor</option>
 				<option value = "1">Not Important</option>
 				<option value = "2">Somewhat Important</option>
@@ -163,7 +163,7 @@ function submitFunction() {
 		</form>
 		<h4>Opportunity</h4>
 			<form>
-			<select name = "ddOpportunity">
+			<select id = "ddOpportunity">
 			    <option value = "0" selected>Not a factor</option>
 				<option value = "1">Not Important</option>
 				<option value = "2">Somewhat Important</option>
@@ -175,7 +175,7 @@ function submitFunction() {
 		</form>
 		<h4>Work-Life Balance</h4>
 			<form>
-			<select name = "ddWLBalance">
+			<select id = "ddWLBalance">
 				<option value = "0" selected>Not a factor</option>
 				<option value = "1">Not Important</option>
 				<option value = "2">Somewhat Important</option>
@@ -187,7 +187,7 @@ function submitFunction() {
 		</form>
 		<h4>Salary</h4>
 			<form>
-			<select name = "ddSalary">
+			<select id = "ddSalary">
 		        <option value = "0" selected>Not a factor</option>
 				<option value = "1">Not Important</option>
 				<option value = "2">Somewhat Important</option>
@@ -203,4 +203,15 @@ function submitFunction() {
 				<button onclick="submitFunction()"; class="button"; type= "Submit" name ="Submit" value="submit" >Submit</button>
 			</form>
 	</body>
+	
+<script>
+
+var Sizew = document.getElementById("ddSize").value; 
+var Agew = document.getElementById("ddAge").value; 
+var Culturew = document.getElementById("ddCulture").value; 
+var Opportunityw = document.getElementById("ddOpportunity").value; 
+var Balancew = document.getElementById("ddBalance").value; 
+var Salaryw = document.getElementById("ddSalary").value; 
+
+</script>
 </html>
