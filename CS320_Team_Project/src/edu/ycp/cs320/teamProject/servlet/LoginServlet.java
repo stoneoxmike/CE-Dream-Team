@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 			// check for errors in the form data before using is in a calculation
 			value = getStringFromParameter(req.getParameter("value"));
 						
-			// check for errors in the form data before using is in a calculation
+			// check for errors in the form data before using it in a calculation
 			if (model.getUsername() == null) {
 				errorMessage = "Please enter a username";
 				// add result objects as attributes
@@ -134,7 +134,7 @@ public class LoginServlet extends HttpServlet {
 			
 	}
 
-	// gets double from the request with attribute named s
+	// gets string from the request with attribute named s
 	private String getStringFromParameter(String s) {
 		if (s == null || s.equals("")) {
 			return null;

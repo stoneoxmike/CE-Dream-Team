@@ -111,4 +111,59 @@ public class InfoInput {
 	public Integer getWorkLifeBalance() {
 		return workLifeBalance;
 	}
+	
+	//getters/setters for weights 
+	
+	//getters 
+	
+	public Integer getsizeWeight() {
+		return sizeWeight;
+	}
+	
+	public Integer getageWeight() {
+		return ageWeight;
+	}
+	
+	public Integer getcultureWeight() {
+		return cultureWeight;
+	}
+	
+	public Integer getopportunityWeight() {
+		return opportunityWeight;
+	}
+	
+	public Integer getworkLifeBalanceWeight() {
+		return workLifeBalanceWeight;
+	}
+	
+	public Integer getsalaryWeight() {
+		return salaryWeight;
+	}
+	
+	//setters 
+	
+		public void setsizeWeight(int sizeWeight) {
+			this.sizeWeight = sizeWeight;
+		}
+		
+		public void setageWeight(int ageWeight) {
+			this.ageWeight = ageWeight;
+		}
+		
+		public void setcultureWeight(int cultureWeight) {
+			this.cultureWeight = cultureWeight;
+		}
+		
+		public void setopportunityWeight(int opportunityWeight) {
+			this.opportunityWeight = opportunityWeight;
+		}
+		
+		public void setworkLifeBalanceWeight(int workLifeBalanceWeight) {
+			this.workLifeBalanceWeight = workLifeBalanceWeight;
+		}
+		
+		public void setsalaryWeight(int salaryWeight) {
+			this.salaryWeight = salaryWeight;
+		}
+
 }
