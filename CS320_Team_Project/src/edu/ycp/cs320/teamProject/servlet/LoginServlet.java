@@ -2,7 +2,6 @@ package edu.ycp.cs320.teamProject.servlet;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +34,7 @@ public class LoginServlet extends HttpServlet {
 
 		// holds the error message text, if there is any
 		String errorMessage = null;
+		String value = null; 
 
 		
 		// decode POSTed form parameters and dispatch to controller
@@ -42,6 +42,25 @@ public class LoginServlet extends HttpServlet {
 			model.setUsername(getStringFromParameter(req.getParameter("username")));
 			model.setPassword(getStringFromParameter(req.getParameter("password")));
 
+			// check for errors in the form data before using is in a calculation
+			value = getStringFromParameter(req.getParameter("value"));
+
+
+				if (value == null)
+				{
+					// add result objects as attributes
+					// this adds the errorMessage text and the result to the response
+					req.setAttribute("errorMessage", errorMessage);
+					//add submit object as attributes
+					req.setAttribute("value", "value");
+					doGet(req, resp);
+				}
+				
+				else if(value.equals("Sign-Up Here")) {
+				SignUpServlet server = new SignUpServlet();
+				server.doGet(req, resp);
+			}
+						
 			// check for errors in the form data before using is in a calculation
 			if (model.getUsername() == null) {
 				errorMessage = "Please enter a username";
