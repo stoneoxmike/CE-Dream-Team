@@ -48,7 +48,6 @@ public class LoginServlet extends HttpServlet {
 				// add result objects as attributes
 				// this adds the errorMessage text and the result to the response
 				req.setAttribute("errorMessage", errorMessage);
-				
 				// Add parameters as request attributes
 				req.setAttribute("username", "username");
 				req.setAttribute("password", "password");
@@ -79,10 +78,11 @@ public class LoginServlet extends HttpServlet {
 				// Add parameters as request attributes
 				req.setAttribute("username", "username");
 				req.setAttribute("password", "password");
+				System.out.println(model.getUsername() + ", " + model.getPassword());
 				//use controller to store and retrieve from database
 //				LoginController controller = new LoginController();
 //				if (controller.login(model)) {
-				if (model.login(model.getEncrypted())) {
+				if (model.login(model.getPassword())) {
 					// if credentials are correct, doGet homePage
 					System.out.println("login successful");
 					HomePageServlet servlet = new HomePageServlet();
@@ -96,7 +96,7 @@ public class LoginServlet extends HttpServlet {
 					req.setAttribute("errorMessage", errorMessage);
 					
 					// Add parameters as request attributes
-					req.setAttribute("username", "username");
+					req.setAttribute(model.getUsername(), "username");
 					req.setAttribute("password", "password");
 					req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
 				}

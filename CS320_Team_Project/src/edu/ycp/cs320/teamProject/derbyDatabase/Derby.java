@@ -82,8 +82,8 @@ public class Derby {
 						tables.createTables(conn, false);
 						
 						System.out.println("Loading initial data...");
-						DatabaseProvider db = new DatabaseProvider();
-						db.getInstance().loadInitialData();
+						Queries query = new Queries();
+						query.loadInitialData();
 						
 						System.out.println("DB successfully initialized!");
 					} catch (PersistenceException e) {
@@ -173,7 +173,8 @@ public class Derby {
 				System.out.println(tempConn);
 				PreparedStatement stmt1 = null;
 				PreparedStatement stmt2 = null;
-				PreparedStatement stmt3 = null;				
+				PreparedStatement stmt3 = null;
+				
 			
 				try {
 					stmt1 = tempConn.prepareStatement(

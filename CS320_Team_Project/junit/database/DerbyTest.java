@@ -23,8 +23,6 @@ import edu.ycp.cs320.teamProject.derbyDatabase.PersistenceException;
 public class DerbyTest {
 	private boolean connected;
 	private Derby db;
-	private DatabaseProvider dbp;
-	private IDatabase idb;
 	Connection conn;
 	
 	@Before
@@ -83,21 +81,7 @@ public class DerbyTest {
 		assertTrue(test);
 	}
 	
-	@Test
-	public void testSetInstance()
-	{
-		dbp = new DatabaseProvider();
-		dbp.setInstance(idb);
-		System.out.println(idb);
-		assertEquals(idb, dbp.getInstance());
-	}
 	
-	@Test
-	public void testGetInstance()
-	{
-		assertEquals(idb, dbp.getInstance());
-		
-	}
 }
 	
 	/*
@@ -118,8 +102,5 @@ public class DerbyTest {
 						System.out.println("Error with database. Tables may already exist");
 					}
 			}
-	
-	
-	
 }
 */

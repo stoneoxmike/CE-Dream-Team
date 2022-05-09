@@ -328,7 +328,7 @@ public class Queries implements IDatabase {
 		// TODO: Change it here and in SQLDemo.java under CS320_LibraryExample_Lab06->edu.ycp.cs320.sqldemo
 		// TODO: DO NOT PUT THE DB IN THE SAME FOLDER AS YOUR PROJECT - that will cause conflicts later w/Git
 		private Connection connect() throws SQLException {
-			Connection conn = DriverManager.getConnection("jdbc:derby:C:/CS320-2022-LibraryExample-DB/library.db;create=true");		
+			Connection conn = DriverManager.getConnection("jdbc:derby:C:/inputs.db;create=true");		
 			
 			// Set autocommit() to false to allow the execution of
 			// multiple queries/statements as part of the same transaction.
@@ -377,14 +377,14 @@ public class Queries implements IDatabase {
 			user.setPassword(resultSet.getString(index++));
 		}
 		
-		// loads default data into database such as:
-		//		-creating tables
-		//		-default admin profile
-		//		-default keys
 		private void loadUserJob(UserJob userJob, ResultSet resultSet, int index) throws SQLException {
 			userJob.setUserID(resultSet.getInt(index++));
 			userJob.setJobID(resultSet.getInt(index++));
 		}
+		
+		// loads default data into database such as:
+				//		-default admin profile
+				//		-default keys
 		public void loadInitialData() {
 			executeTransaction(new Transaction<Boolean>() {
 				@Override

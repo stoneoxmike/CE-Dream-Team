@@ -19,7 +19,6 @@ public class User {
 	}
 	
 	public User() {
-		
 	}
 
 	public static String getMd5(String input)
@@ -47,7 +46,7 @@ public class User {
         // For specifying wrong message digest algorithms
         catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
-        }
+        	}
     }
 	
 	// compare input md5 to set md5
@@ -68,7 +67,10 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+		if (password != null)
+		{
 		this.encrypted = getMd5(password);
+		}
 	}
 	public String getPassword() {
 		return password;
