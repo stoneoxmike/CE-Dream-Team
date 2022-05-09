@@ -41,7 +41,7 @@ public class Queries implements IDatabase {
 				try {
 					stmt = conn.prepareStatement(
 							"select users.user_id " +
-							"  from  users " +
+							"  from users " +
 							"  where users.username = ? " +
 							"  and users.password = ? "
 					);
@@ -414,24 +414,12 @@ public class Queries implements IDatabase {
 					String username = "admin";
 					//default admin password
 					String password = "12345";
-					//fake salary for sample job
-					double inputSalary = 12000.12;
-					//fake location for sample job
-					String inputLocation = "Maryland";
-					//fake stipend for sample job
-					int housingStipend = 2500;
-					//fake commute time for sample job
-					Double commuteTime = 1.5;
 					//create a new User object called admin
 					//using the username and password
-					User admin = new User(username, password);
+					User admin = new User();
 					//create a new Job object called sample
 					// TODO we need to change this or change Job to concrete
-					Job sample = new Job();
-					//Use setters within Job class to assigned values
-					sample.setSalary(inputSalary);
-					sample.setLocation(inputLocation);
-		
+					
 					//create preparedStatments for queries
 					 PreparedStatement insertAdmin = null;
 					 PreparedStatement checkAdmin  = null;
@@ -442,33 +430,15 @@ public class Queries implements IDatabase {
 					 ResultSet resultSet           = null;
 					 
 					 System.out.println("Loading Initial Data: ");
-					 try {	 
 					//query to check to see if the admin user already exists within the database
-					 checkAdmin = conn.prepareStatement("select users.user_id, users.username, users.password "
-					 		+ " from users"
-					 		+ " where users.username = ?"
-					 		+ " and users.password = ?");
-					 
-					 checkAdmin.setString(1, admin.getUsername());
-					 checkAdmin.setString(2, admin.getPassword());
-						
-						// execute the query, get the results, and assemble them in an ArrayList
-						resultSet = checkAdmin.executeQuery();
-						//set num rows to 0
-						int rows = 0;
-						while (resultSet.next()) {
-							//user the loadUser method to initialize the retrieved values to the
-							//assigned user object
-							//NOTE: loadUser is located above and uses User Class setter methods
-							loadUser(admin, resultSet, 1);
-		
-							//add that user to the result List
-							System.out.println(admin.getUsername() + ", " + admin.getPassword());
-							//increment rows
-							rows++;
-						}
+					admin = findUserByID(username,password);
+					if (admin.getUsername() != null && admin.getPassword() != null)
+					{
+					System.out.println(admin.getUsername() + ", " + admin.getPassword());
+					}
+					else if (admin.getUsername() == null || admin.getPassword() == null)
+					{
 						//if no amount of rows exists run this method
-						if (rows == 0) {
 							//print out statement saying no Admin found along with the admin username and password
 							System.out.println("No Admin User found. Initializing new Admin User in database: ");
 
@@ -488,10 +458,6 @@ public class Queries implements IDatabase {
 									 System.out.println("error with loading admin into table");
 								 }
 						}
-					} finally {
-						DBUtil.closeQuietly(resultSet);
-						DBUtil.closeQuietly(checkAdmin);
-					} 
 					 return true;
 				}
 			});
