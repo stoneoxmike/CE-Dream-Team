@@ -31,7 +31,7 @@ public class Queries implements IDatabase {
 	private static final int MAX_ATTEMPTS = 10;
 	
 	@Override
-	public User findUserByID(String id) {
+	public User findUserByID(String username, String password) {
 		return executeTransaction(new Transaction<User>() {
 			@Override
 			public User execute(Connection conn) throws SQLException {
@@ -40,11 +40,13 @@ public class Queries implements IDatabase {
 				
 				try {
 					stmt = conn.prepareStatement(
-							"select users.username " +
+							"select users.user_id " +
 							"  from  users " +
-							"  where users.user_id = ? "
+							"  where users.username = ? " +
+							"  and users.password = ? "
 					);
-					stmt.setString(1, id);
+					stmt.setString(1, username);
+					stmt.setNString(2, password);
 					
 					User result = new User();
 					
@@ -64,7 +66,7 @@ public class Queries implements IDatabase {
 					
 					// check if the title was found
 					if (!found) {
-						System.out.println("<" + id + "> was not found in the users table");
+						System.out.println("<" + username + "> was not found in the users table");
 					}
 					
 					return result;
@@ -77,7 +79,7 @@ public class Queries implements IDatabase {
 	}
 
 	@Override
-	public List<Pair<User, Job>> findAllJobsByUserID(String id) {
+	public List<Pair<User, Job>> findAllJobsByUserID(String username, String password) {
 		return executeTransaction(new Transaction<List<Pair<User, Job>>>() {
 			@Override
 			public List<Pair<User, Job>> execute(Connection conn) throws SQLException {
@@ -85,6 +87,9 @@ public class Queries implements IDatabase {
 				ResultSet resultSet = null;
 				
 				try {
+					
+					User user = new User(username, password);
+					user = findUserByID(user.getUsername(), user.getPassword());
 					stmt = conn.prepareStatement(
 							"select jobs.* " +
 							"  from jobs, users, userjob  " + 
@@ -93,10 +98,9 @@ public class Queries implements IDatabase {
 							"  users.user_id = ?"
 					);
 					
-					stmt.setString(1, id);
-					
-					User user = new User();
-					user = findUserByID(id);
+					int id = user.getUserID();
+					stmt.setInt(1, id);
+				
 					ArrayList<Pair<User, Job>> result = new ArrayList<Pair<User, Job>>();
 					
 					
@@ -147,23 +151,10 @@ public class Queries implements IDatabase {
 					stmt.setString(1, username);
 					stmt.setString(2,  password);
 					
-					Integer result = 0;
+					Integer result = 1;
 					
-					resultSet = stmt.executeQuery();
-					
-					// for testing that a result was returned
-					Integer found = 0;
-					
-					while (resultSet.next()) {
-						found = 1;
-						
-						result = found;
-					}
-					
-					// check if the title was found
-					if (found == 0) {
-						System.out.println("job was not correctly inserted");
-					}
+					stmt.executeUpdate();
+				
 					/* checkAdmin = conn.prepareStatement("select users.user_id, users.username, users.password "
 						 		+ " from users"
 						 		+ " where users.username = ?"
@@ -208,17 +199,18 @@ public class Queries implements IDatabase {
 			Double commuteTime, boolean remote, int size, int age, int culture, int opportunity,
 			int workLifeBalance, boolean insurance, boolean pension, boolean pto, int signingBonus, int annualBonus,
 			int jobLevel, int length, int resumeStrength, int credits, boolean fullTimeOpportunity, int sizeWeight,
-			int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight) {
+			int ageWeight, int cultureWeight, int opportunityWeight, int workLifeBalanceWeight, int salaryWeight, String username, String password) {
 		return executeTransaction(new Transaction<Integer>() {
 			@Override
 			public Integer execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
+				PreparedStatement stmt2 = null;
 				ResultSet resultSet = null;
 				
 				try {
 					stmt = conn.prepareStatement(
-							"insert into jobs (title, salary, location,  commuteTime, remote, size, age, culture, opportunity, workLifeBalance, sizeWeight, ageWeight, cultureWeight, opportunityWeight, workLifeBalanceWeight, salaryWeight) " +
-							"  values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
+							"insert into jobs (name, salary, location, housingStipend, commuteTime, remote, size, age, culture, opportunity, workLifeBalance, sizeWeight, ageWeight, cultureWeight, opportunityWeight, workLifeBalanceWeight, salaryWeight) " +
+							"  values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) "
 					);
 					stmt.setString(1, title);
 					stmt.setDouble(2,  salary);
@@ -238,25 +230,22 @@ public class Queries implements IDatabase {
 					stmt.setInt(16, workLifeBalanceWeight);
 					stmt.setInt(17, salaryWeight);
 					
+					User user = findUserByID(username, password); 
 					
+					stmt2 = conn.prepareStatement(
+							" insert into userjob (user_id, job_id) " +
+							" values (?, ?) "
+							
+					);
+					stmt2.setInt(1, user.getUserID());
 					
-					Integer result = 0;
+					//findAllJobsByUserID(user.getUserID());
 					
-					resultSet = stmt.executeQuery();
+					//stmt2.setInt(2, );
 					
-					// for testing that a result was returned
-					Integer found = 0;
+					Integer result = 1;
 					
-					while (resultSet.next()) {
-						found = 1;
-						
-						result = found;
-					}
-					
-					// check if the title was found
-					if (found == 0) {
-						System.out.println("job was not correctly inserted");
-					}
+					stmt.executeUpdate();
 					
 					return result;
 				} finally {
