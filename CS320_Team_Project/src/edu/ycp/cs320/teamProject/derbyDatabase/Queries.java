@@ -135,7 +135,9 @@ public class Queries implements IDatabase {
 			@Override
 			public Integer execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
+				//PreparedStatement checkAdmin = null;
 				ResultSet resultSet = null;
+				//User admin = null;
 				
 				try {
 					stmt = conn.prepareStatement(
@@ -160,9 +162,38 @@ public class Queries implements IDatabase {
 					
 					// check if the title was found
 					if (found == 0) {
-						System.out.println("<" + username + "> was not correctly inserted");
+						System.out.println("job was not correctly inserted");
 					}
-					
+					/* checkAdmin = conn.prepareStatement("select users.user_id, users.username, users.password "
+						 		+ " from users"
+						 		+ " where users.username = ?"
+						 		+ " and users.password = ?");
+						 
+						 checkAdmin.setString(1, username);
+						 checkAdmin.setString(2, password);
+							
+							// execute the query, get the results, and assemble them in an ArrayList
+							resultSet = checkAdmin.executeQuery();
+							//set num rows to 0
+							int rows = 0;
+							while (resultSet.next()) {
+								//user the loadUser method to initialize the retrieved values to the
+								//assigned user object
+								//NOTE: loadUser is located above and uses User Class setter methods
+								loadUser(admin, resultSet, 1);
+			
+								//add that user to the result List
+								System.out.println(admin);
+								//increment rows
+								rows++;
+								result = 1;
+							}
+							//if no amount of rows exists run this method
+							if (rows == 0) {
+								//print out statement saying no Admin found along with the admin username and password
+								System.out.println("Error inserting User");
+							} */
+							
 					return result;
 				} finally {
 					DBUtil.closeQuietly(resultSet);
@@ -441,7 +472,7 @@ public class Queries implements IDatabase {
 							loadUser(admin, resultSet, 1);
 		
 							//add that user to the result List
-							System.out.println(admin);
+							System.out.println(admin.getUsername() + ", " + admin.getPassword());
 							//increment rows
 							rows++;
 						}
@@ -449,113 +480,26 @@ public class Queries implements IDatabase {
 						if (rows == 0) {
 							//print out statement saying no Admin found along with the admin username and password
 							System.out.println("No Admin User found. Initializing new Admin User in database: ");
-							System.out.println("Your Admin User is:");
-							//could create a random user and password generator later on
-							System.out.println("Username: " + admin.getUsername());
-							System.out.println("Password: " + admin.getPassword());
-							//try a new query
-							try {
-								
+
 								 //create insertion query
-								 insertAdmin = conn.prepareStatement("insert into users (username, password) values (?,?)");
-								 
-								 //replace strings within query with username and password
-								 insertAdmin.setString(1, admin.getUsername());
-								 insertAdmin.setString(2, admin.getPassword());
-								 
-								 //execute query
-								 resultSet = insertAdmin.executeQuery();
-								 //reset rows to zero
-								 //create a check to ensure that the admin user has properly been input
-								 rows = 0;
-								 //while resultSet has a next iteration
-								 while (resultSet.next())
+								 int result = insertUser(admin.getUsername(), admin.getPassword());
+								 if (result == 1)
 								 {
-									 //load user information from table 
-									 loadUser(admin, resultSet, 1);
-									 
-									 //Print out results
-									 System.out.println(admin);
-								 }
-								 System.out.println("Admin profile succesffuly input!");
-							} catch (SQLException e) {
-								throw new SQLException("User table made a fucky wucky", e);
-							} finally {
-								DBUtil.closeQuietly(insertAdmin);	
-							}
-						}
-						try {
-							checkJob = conn.prepareStatement("select jobs.job_id, users.user_id"
-									+ "from jobs, users, userjob"
-									+ "where jobs.job_id = userjob.job_id and "
-									+ "users.user_id = userjob.user_id and "
-									+ "users.user_id = ? "
-									);
-							checkJob.setInt(1, admin.getUserID());
-								
-							// execute the query, get the results, and assemble them in an ArrayList
-							resultSet = checkJob.executeQuery();
-							rows = 0;
-							while (resultSet.next()) {
-								//create a new user object
-								//user the loadUser method to initialize the retrieved values to the
-								//assigned user object
-								//NOTE: loadUser is located above and uses User Class setter methods
-								loadJob(sample, resultSet, 1);
-								//Print out job information
-								System.out.println(sample);
-								//increment rows
-								rows++;
-								}
-								//if no amount of rows exists run this method
-								if (rows == 0) {
-									//print out statement saying no Admin found along with the admin username and password
-									System.out.println("No Admin User found. Initializing new Admin User in database: ");
-									System.out.println("Your Admin User is:");
+								 System.out.println("Your Admin User is:");
 									//could create a random user and password generator later on
 									System.out.println("Username: " + admin.getUsername());
 									System.out.println("Password: " + admin.getPassword());
-									//try a new query
-									try {
-										
-										 //create insertion query
-										 insertAdmin = conn.prepareStatement("insert into users (username, password) values (?,?)");
-										 
-										 //replace strings within query with username and password
-										 insertAdmin.setString(1, admin.getUsername());
-										 insertAdmin.setString(2, admin.getPassword());
-										 
-										 //execute query
-										 resultSet = insertAdmin.executeQuery();
-										 //reset rows to zero
-										 //create a check to ensure that the admin user has properly been input
-										 rows = 0;
-										 //while resultSet has a next iteration
-										 while (resultSet.next())
-										 {
-											 //create a new user object
-											 User createdUser = new User();
-											 //load user information from table 
-											 loadUser(createdUser, resultSet, 1);
-											 
-											 //Print out results
-											 System.out.println(createdUser);
-										 }
-										 System.out.println("Admin profile succesffuly input!");
-									} catch (SQLException e) {
-										throw new SQLException("User table made a fucky wucky", e);
-									} finally {
-										DBUtil.closeQuietly(insertAdmin);	
-									}
-								}
-						} catch (SQLException e)
-							{
-								throw new SQLException("Job table made big oopsie woopsie", e);
-							}
+									System.out.println("ID: " + admin.getUserID());
+									
+								 System.out.println("Admin profile succesffuly input!");
+								 }
+								 else {
+									 System.out.println("error with loading admin into table");
+								 }
+						}
 					} finally {
 						DBUtil.closeQuietly(resultSet);
 						DBUtil.closeQuietly(checkAdmin);
-						DBUtil.closeQuietly(checkJob);
 					} 
 					 return true;
 				}

@@ -81,13 +81,19 @@ public class Derby {
 						Derby tables = new Derby();
 						tables.createTables(conn, false);
 						
+					} catch (PersistenceException e) {
+						System.out.println("Error with database. Tables may already exist");
+					}
+					try {
 						System.out.println("Loading initial data...");
 						Queries query = new Queries();
 						query.loadInitialData();
 						
 						System.out.println("DB successfully initialized!");
-					} catch (PersistenceException e) {
-						System.out.println("Error with database. Tables may already exist");
+					} catch (PersistenceException e)
+					{
+						System.out.println("Error With Initialization");
+						System.out.println(e.getMessage());
 					}
 			}
 	
