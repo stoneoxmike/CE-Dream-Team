@@ -149,7 +149,7 @@ public class Queries implements IDatabase {
 					
 					Integer result = 0;
 					
-					resultSet = stmt.executeQuery();
+					stmt.execute();
 					
 					// for testing that a result was returned
 					Integer found = 0;

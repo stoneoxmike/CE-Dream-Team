@@ -44,23 +44,6 @@ public class LoginServlet extends HttpServlet {
 
 			// check for errors in the form data before using is in a calculation
 			value = getStringFromParameter(req.getParameter("value"));
-			
-			if (value == null)
-			{
-				// add result objects as attributes
-				// this adds the errorMessage text and the result to the response
-				req.setAttribute("errorMessage", errorMessage);
-				//add submit object as attributes
-				req.setAttribute("value", "value");
-				doGet(req, resp);
-			}
-			
-			System.out.println(value);
-			
-			if(value.equals("Sign-Up Here")) {
-			SignUpServlet server = new SignUpServlet();
-			server.doGet(req, resp);
-			}
 						
 			// check for errors in the form data before using is in a calculation
 			if (model.getUsername() == null) {
@@ -90,7 +73,7 @@ public class LoginServlet extends HttpServlet {
 			// must create the controller each time, since it doesn't persist between POSTs
 			// the view does not alter data, only controller methods should be used for that
 			// thus, always call a controller method to operate on the data
-			else {
+			else if (model.getUsername() != null && model.getPassword() != null){
 				// add result objects as attributes
 				// this adds the errorMessage text and the result to the response
 				req.setAttribute("errorMessage", errorMessage);
@@ -102,14 +85,14 @@ public class LoginServlet extends HttpServlet {
 				//use controller to store and retrieve from database
 //				LoginController controller = new LoginController();
 //				if (controller.login(model)) {
-				if (model.login(model.getPassword())) {
+				if (model.login(model.getPassword()) && model.checkInfo()) {
 					// if credentials are correct, doGet homePage
 					System.out.println("login successful");
 					HomePageServlet servlet = new HomePageServlet();
 					servlet.doGet(req, resp);
 				} else {
 					// if credentials wrong, give error
-					errorMessage = "Incorrect password";
+					errorMessage = "Incorrect information";
 					System.out.println("login failed");
 					// add result objects as attributes
 					// this adds the errorMessage text and the result to the response
@@ -119,8 +102,26 @@ public class LoginServlet extends HttpServlet {
 					req.setAttribute(model.getUsername(), "username");
 					req.setAttribute("password", "password");
 					req.getRequestDispatcher("/_view/login.jsp").forward(req, resp);
-				}
+				}	
+			}else 
+			{
+			if (value == null)
+			{
+				// add result objects as attributes
+				// this adds the errorMessage text and the result to the response
+				req.setAttribute("errorMessage", errorMessage);
+				//add submit object as attributes
+				req.setAttribute("value", "value");
+				doGet(req, resp);
 			}
+			
+			System.out.println(value);
+			
+			if(value.equals("Sign-Up Here") && errorMessage == null) {
+			SignUpServlet server = new SignUpServlet();
+			server.doGet(req, resp);
+			}
+		}
 		} catch (NumberFormatException e) {
 			errorMessage = "Invalid username or password";
 		}

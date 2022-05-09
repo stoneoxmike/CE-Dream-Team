@@ -4,6 +4,8 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import edu.ycp.cs320.teamProject.derbyDatabase.Queries;
+
 public class User {
 	// fields
 	private String username;
@@ -48,6 +50,26 @@ public class User {
             throw new RuntimeException(e);
         	}
     }
+	
+	public Boolean checkInfo()
+	{
+		boolean check = false;
+		Queries query = new Queries();
+		query.findUserByID(username, password);
+		User returned = new User();
+		if (returned.getUsername() == username && returned.getPassword() == password)
+		{
+			check = true;
+		}
+		else
+		{
+			check = false;
+		}
+		
+		
+		return check;
+		
+	}
 	
 	// compare input md5 to set md5
 	public Boolean login(String input) {
