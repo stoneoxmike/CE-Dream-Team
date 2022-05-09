@@ -27,6 +27,12 @@ public InfoInput ii1, ii2, ii3;
 		ii1.setSalary(333.0);
 		ii1.setSize(5);
 		ii1.setWorkLifeBalance(4);
+		ii1.setsizeWeight(4);
+		ii1.setageWeight(4);
+		ii1.setcultureWeight(3);
+		ii1.setopportunityWeight(1);
+		ii1.setworkLifeBalanceWeight(6);
+		ii1.setsalaryWeight(2);
 		
 		
 		//setting for ii2
@@ -144,6 +150,53 @@ public InfoInput ii1, ii2, ii3;
 		assertTrue(ii3.getWorkLifeBalance() == 2);
 		
 	}
+	
+	@Test
+	public void getsizeWeight() {
+		
+		assertTrue(ii1.getsizeWeight() == 4);
+		
+	}
+	
+	@Test
+	public void getageWeight() {
+		
+		assertTrue(ii1.getageWeight() == 4);
+		
+	}
+	
+	
+	@Test
+	public void getcultureWeight() {
+		
+		assertTrue(ii1.getcultureWeight() == 3);
+		
+	}
+	
+	
+	@Test
+	public void getopportunityWeight() {
+		
+		assertTrue(ii1.getopportunityWeight() == 1);
+		
+	}
+	
+	
+	@Test
+	public void getworkLifeBalanceWeight() {
+		
+		assertTrue(ii1.getworkLifeBalanceWeight() == 6);
+		
+	}
+	
+	
+	@Test
+	public void getsalaryWeight() {
+		
+		assertTrue(ii1.getsalaryWeight() == 2);
+		
+	}
+	
 	
 }
 	
