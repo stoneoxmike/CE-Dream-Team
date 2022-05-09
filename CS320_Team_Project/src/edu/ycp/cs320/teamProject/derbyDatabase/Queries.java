@@ -46,7 +46,7 @@ public class Queries implements IDatabase {
 							"  and users.password = ? "
 					);
 					stmt.setString(1, username);
-					stmt.setNString(2, password);
+					stmt.setString(2, password);
 					
 					User result = new User();
 					
@@ -63,6 +63,8 @@ public class Queries implements IDatabase {
 						
 						result = user;
 					}
+					result.setUsername(username);
+					result.setPassword(password);
 					
 					// check if the title was found
 					if (!found) {
