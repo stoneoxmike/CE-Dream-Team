@@ -42,7 +42,7 @@
 		}
 	</style>
 	
-	<!-- Script for password hiding-->
+<!-- Script for password hiding-->
 <script>
 function pwShowFunction() {
 	  var pwF = document.getElementById("pw");

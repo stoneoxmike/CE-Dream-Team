@@ -22,7 +22,6 @@ public class SignUpServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("Sign Up Servlet: doPost");
-		
 
 		// holds the error message text, if there is any
 		String errorMessage = null;
