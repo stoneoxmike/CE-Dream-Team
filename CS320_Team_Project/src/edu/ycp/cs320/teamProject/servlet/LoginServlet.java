@@ -44,21 +44,22 @@ public class LoginServlet extends HttpServlet {
 
 			// check for errors in the form data before using is in a calculation
 			value = getStringFromParameter(req.getParameter("value"));
-
-
-				if (value == null)
-				{
-					// add result objects as attributes
-					// this adds the errorMessage text and the result to the response
-					req.setAttribute("errorMessage", errorMessage);
-					//add submit object as attributes
-					req.setAttribute("value", "value");
-					doGet(req, resp);
-				}
-				
-				else if(value.equals("Sign-Up Here")) {
-				SignUpServlet server = new SignUpServlet();
-				server.doGet(req, resp);
+			
+			if (value == null)
+			{
+				// add result objects as attributes
+				// this adds the errorMessage text and the result to the response
+				req.setAttribute("errorMessage", errorMessage);
+				//add submit object as attributes
+				req.setAttribute("value", "value");
+				doGet(req, resp);
+			}
+			
+			System.out.println(value);
+			
+			if(value.equals("Sign-Up Here")) {
+			SignUpServlet server = new SignUpServlet();
+			server.doGet(req, resp);
 			}
 						
 			// check for errors in the form data before using is in a calculation

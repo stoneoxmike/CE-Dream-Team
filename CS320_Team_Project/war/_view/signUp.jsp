@@ -7,7 +7,7 @@
 	
 		#LoginBox 
 		{
-			float: left;
+			float: center;
 			border-style: solid;
 			border-width: 5px;
 			width:600px;
@@ -42,23 +42,12 @@
 		}
 	</style>
 	
-<!-- Script for password hiding-->
-<script>
-function pwShowFunction() {
-	  var pwF = document.getElementById("pw");
-	  if (pwF.type === "password") {
-	    pwF.type = "text";
-	  } 
-	  else {
-	    pwF.type = "password";
-	  }
-}
-</script>
+
 
 <body>
 		<div id = "LoginBox">
 			<h1 class = "h1"> Welcome! </h1>
-				<p id = "label"> Please create you new account with using the fields below. </i></br> </p>
+				<p id = "label"> Please create your new account with using the fields below. </i></br> </p>
 				<form action="${pageContext.servletContext.contextPath}/login" method="post">
 					<table>
 					<tr>
@@ -67,23 +56,24 @@ function pwShowFunction() {
 					</tr>
 					<tr>
 						<td class="label_2">New Password:</td>
-						<td><input type="password" name="password" value="" id="pw"/>
+						<td><input type="text" name="password" value="" id="pw"/>
+						</td>
+					</tr>
+						<td class="label_2">Confirm New Password:</td>
+						<td><input type="text" name="password" value="" id="pwconf"/>
 						</td>
 					</tr>
 				</table>
-					<input type="checkbox" onclick="pwShowFunction()">Show Password
+				<br>
+			
 				<div id = "Submit">
-							<input type="Submit" name="" value="Contnue" id = "label_3">
+							<input type="Submit" name="" value="Create Account" id = "label_3">
 					</div>
 				</form>
-				<form action="${pageContext.servletContext.contextPath}/home" method="post">
+				<br>
+				<form action="${pageContext.servletContext.contextPath}/login" method="post">
 	<button class="button" type = "Submit" name="value" value="back">Back</button>
 	</form>
-				<form action="${pageContext.servletContext.contextPath}/signUp" method="get">
-				<div id = "signUpButton">
-					<input type ="button" name ="signUp" value = "Sign-Up Here" id ="label_3">
-				</div>
-				</form>
 				<c:if test="${! empty errorMessage}">
 					<div class="error">${errorMessage}</div>
 				</c:if>
