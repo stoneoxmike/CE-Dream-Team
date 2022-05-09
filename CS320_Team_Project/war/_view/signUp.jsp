@@ -48,7 +48,7 @@
 		<div id = "LoginBox">
 			<h1 class = "h1"> Welcome! </h1>
 				<p id = "label"> Please create your new account with using the fields below. </i></br> </p>
-				<form action="${pageContext.servletContext.contextPath}/login" method="post">
+				<form action="${pageContext.servletContext.contextPath}/signUp" method="post">
 					<table>
 					<tr>
 						<td class="label_2">New Username:</td>
@@ -60,12 +60,11 @@
 						</td>
 					</tr>
 						<td class="label_2">Confirm New Password:</td>
-						<td><input type="text" name="password" value="" id="pwconf"/>
+						<td><input type="text" name="confirmPassword" value="" id="pwconf"/>
 						</td>
 					</tr>
 				</table>
 				<br>
-			
 				<div id = "Submit">
 							<input type="Submit" name="" value="Create Account" id = "label_3">
 					</div>

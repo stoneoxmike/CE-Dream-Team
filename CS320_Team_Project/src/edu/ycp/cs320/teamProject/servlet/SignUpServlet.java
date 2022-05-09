@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.ycp.cs320.teamProject.derbyDatabase.Queries;
+
 public class SignUpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -26,13 +28,61 @@ public class SignUpServlet extends HttpServlet {
 		// holds the error message text, if there is any
 		String errorMessage = null;
 		String value = null;
+		String username = null;
+		String password = null;
+		String secondPassword = null;
 		// decode POSTed form parameters and dispatch to controller
 		try 
 		{
 			// check for errors in the form data before using is in a calculation
 			value = getStringFromParameter(req.getParameter("value"));
-
-
+			username = getStringFromParameter(req.getParameter("username"));
+			password = getStringFromParameter(req.getParameter("password"));
+			secondPassword = getStringFromParameter(req.getParameter("confirmPassword"));
+			
+			if (username == null)
+			{
+				errorMessage = "Please enter a new username";
+				
+				req.setAttribute("errorMessage", errorMessage);
+				req.setAttribute("username", "username");
+				doGet(req,resp);
+			}
+			else if (password == null)
+			{
+				errorMessage = "Please enter a new Password";
+				
+				req.setAttribute("errorMessage", errorMessage);
+				
+				req.setAttribute("password", "password");
+				doGet(req, resp);
+			}
+			else if (secondPassword == null || !secondPassword.equals(password))
+			{
+				errorMessage = "Passwords are not the same";
+				
+				req.setAttribute("confirmPassword", "confirmPassword");
+				req.setAttribute("errorMessage",  errorMessage);
+				
+				doGet(req, resp);
+			} else
+			{
+				//logic to insert the new info into the database
+				Queries query = new Queries();
+				int result = query.insertUser(username, password);
+				if(result == 1)
+				{
+					LoginServlet server = new LoginServlet();
+					server.doGet(req, resp);
+				}
+				else
+				{
+					errorMessage = "interruption inputing information";
+					req.setAttribute("errorMessage", errorMessage);
+					doGet(req, resp);
+				}
+			}
+			
 			if (value == null)
 			{
 				// add result objects as attributes
@@ -51,7 +101,7 @@ public class SignUpServlet extends HttpServlet {
 		//easy movement across the pages
 		if (value.equals("back"))
 		{
-			HomePageServlet server = new HomePageServlet();
+			LoginServlet server = new LoginServlet();
 			server.doGet(req, resp);
 		}
 		else {

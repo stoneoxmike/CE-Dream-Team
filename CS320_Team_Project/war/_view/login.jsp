@@ -73,9 +73,11 @@ function pwShowFunction() {
 				</table>
 					<input type="checkbox" onclick="pwShowFunction()">Show Password
 				<div id = "Submit">
-							<input type="Submit" name="" value="Contnue" id = "label_3">
-					</div>
+					<input type="Submit" name="" value="Contnue" id = "label_3">
+				</div>
+					
 				</form>
+			
 				<form action="${pageContext.servletContext.contextPath}/signUp" method="post">
 				<div id = "signUpButton">
 					<input type ="Submit" name ="value" value = "Sign-Up Here" id ="label_3">
@@ -83,7 +85,8 @@ function pwShowFunction() {
 				</form>
 				<c:if test="${! empty errorMessage}">
 					<div class="error">${errorMessage}</div>
-				</c:if>
+					</c:if>	
+				
 		</div>
 	</body>
 </html>
