@@ -76,7 +76,9 @@ public class DerbyTest {
 			System.out.println(e.getMessage());
 		} catch(PersistenceException e)
 		{
-			
+			test = false;
+			System.out.println("Persistence Error");
+			System.out.println(e.getMessage());
 		}
 		assertTrue(test);
 	}
