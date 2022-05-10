@@ -31,54 +31,69 @@ public class HomePageServlet extends HttpServlet {
 
 		// holds the error message text, if there is any
 		String errorMessage = null;
-
-		// result of calculation goes here
-		Double result = null;
-		
+		String value = null;
 		// decode POSTed form parameters and dispatch to controller
-		try {
-			Double first = getDoubleFromParameter(req.getParameter("first"));
-			Double second = getDoubleFromParameter(req.getParameter("second"));
-
+		try 
+		{
 			// check for errors in the form data before using is in a calculation
-			if (first == null || second == null) {
-				errorMessage = "Please specify two numbers";
+			value = getStringFromParameter(req.getParameter("value"));
+
+
+			if (value == null)
+			{
+				// add result objects as attributes
+				// this adds the errorMessage text and the result to the response
+				req.setAttribute("errorMessage", errorMessage);
+				//add submit object as attributes
+				req.setAttribute("value", "value");
+				doGet(req, resp);
 			}
-			// otherwise, data is good, do the calculation
 			// must create the controller each time, since it doesn't persist between POSTs
 			// the view does not alter data, only controller methods should be used for that
 			// thus, always call a controller method to operate on the data
-			else {
-				HomePageController controller = new HomePageController();
-				result = controller.add(first, second);
-			}
-		} catch (NumberFormatException e) {
-			errorMessage = "Invalid double";
+			System.out.println(value);
+		//setup logic for the buttons located on the right side of the home page to allow for 
+		//easy movement across the pages
+		if (value.equals("logOut"))
+		{
+			LoginServlet server = new LoginServlet();
+			server.doGet(req, resp);
 		}
 		
-		// Add parameters as request attributes
-		// this creates attributes named "first" and "second for the response, and grabs the
-		// values that were originally assigned to the request attributes, also named "first" and "second"
-		// they don't have to be named the same, but in this case, since we are passing them back
-		// and forth, it's a good idea
-		req.setAttribute("first", req.getParameter("first"));
-		req.setAttribute("second", req.getParameter("second"));
+		else if (value.equals("Profile"))
+		{
+			ProfileServlet server = new ProfileServlet();
+			server.doGet(req, resp);
+		}
 		
-		// add result objects as attributes
-		// this adds the errorMessage text and the result to the response
-		req.setAttribute("errorMessage", errorMessage);
-		req.setAttribute("result", result);
-		
-		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/homePage.jsp").forward(req, resp);
+		else if (value.equals("Job Comparison"))
+		{
+			JobComparisonServlet server = new JobComparisonServlet();
+			server.doGet(req, resp);
+		}
+		else if (value.equals("Info Input")) {
+			InfoInputServlet server = new InfoInputServlet();
+			server.doGet(req, resp);
+		}
+		else {
+			errorMessage = null;
+			req.setAttribute("submit", "submit");
+			req.setAttribute("errorMessage", errorMessage);
+			// Forward to view to render the result HTML document
+			doGet(req, resp);
+		}
+	}
+		 catch (NumberFormatException e) {
+				errorMessage = "Invalid request";
+			}
 	}
 
 	// gets double from the request with attribute named s
-	private Double getDoubleFromParameter(String s) {
+	private String getStringFromParameter(String s) {
 		if (s == null || s.equals("")) {
 			return null;
 		} else {
-			return Double.parseDouble(s);
+			return s;
 		}
 	}
 }

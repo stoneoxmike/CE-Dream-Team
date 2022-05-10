@@ -2,7 +2,11 @@ package edu.ycp.cs320.teamProject.main;
 
 import java.io.File;
 
+
 import org.eclipse.jetty.server.Server;
+
+import edu.ycp.cs320.teamProject.derbyDatabase.Derby;
+import edu.ycp.cs320.teamProject.storage.Job;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
@@ -18,12 +22,22 @@ public class Main {
 		System.out.println("STARTING: web server on port 8081");
 		server.start();
 		
-		// dump the console output - this will produce a lot of red text - no worries, that is normal
-		server.dumpStdErr();
-		
+		// dump the console output - this will produce a lot of red text - no worries, that is normal		
 		// Inform user that server is running
 		System.out.println("RUNNING: web server on port 8081");
 		
+		
+		//to test the get Rating method
+		//---------------------------------
+//		Job test = new Job();
+//		test.getRating();
+		//---------------------------------
+		
+		//start derby database
+		//---------------------------------
+		Derby.main(args);
+		//---------------------------------
+	
         // The use of server.join() the will make the current thread join and
         // wait until the server is done executing.
         // See http://docs.oracle.com/javase/7/docs/api/java/lang/Thread.html#join()

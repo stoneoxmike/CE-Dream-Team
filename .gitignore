@@ -43,3 +43,30 @@ local.properties
 
 # Locally stored "Eclipse launch configurations"
 *.launch
+/bin/
+
+# Database
+CS320_Team_Project/inputsdb/
+*.dat
+*.dat
+*.dat
+CS320_Team_Project/inputsdb/seg0/c71.dat
+CS320_Team_Project/inputsdb/seg0/c81.dat
+CS320_Team_Project/inputsdb/seg0/c90.dat
+CS320_Team_Project/inputsdb/seg0/ca1.dat
+CS320_Team_Project/inputsdb/seg0/cb1.dat
+CS320_Team_Project/inputsdb/log/log.ctrl
+CS320_Team_Project/inputsdb/log/log.ctrl
+CS320_Team_Project/inputsdb/log/log1.dat
+CS320_Team_Project/inputsdb/log/logmirror.ctrl
+*.dat
+CS320_Team_Project/inputsdb/seg0/c10.dat
+CS320_Team_Project/inputsdb/seg0/c101.dat
+CS320_Team_Project/inputsdb/seg0/c101.dat
+*.dat
+CS320_Team_Project/inputsdb/db.lck
+CS320_Team_Project/inputsdb/log/log.ctrl
+CS320_Team_Project/inputsdb/db.lck
+CS320_Team_Project/inputsdb/log/log1.dat
+CS320_Team_Project/inputsdb/log/logmirror.ctrl
+CS320_Team_Project/inputsdb/seg0/c20.dat
